@@ -680,7 +680,8 @@ document.addEventListener('click',e=>{
 route();
 
 /* inquiry form */
-const FORM_ENDPOINT = ""; // po nasazení na vlastní hosting sem vložte adresu formulářové služby (např. Formspree)
+const WEB3FORMS_KEY = ""; // přístupový klíč z web3forms.com – poptávky pak chodí rovnou do e-mailu
+const FORM_ENDPOINT = ""; // alternativa: adresa jiné formulářové služby (např. Formspree)
 const OWNER_EMAIL = "aj.fryk@gmail.com";
 const form = $('#inq'), done = $('#inq-done');
 function setErr(el, msg){ const f = el.closest('.field'); f.classList.toggle('err', !!msg); const m=f.querySelector('.msg'); if(m) m.textContent = msg||''; }
@@ -708,9 +709,21 @@ form.addEventListener('submit', async e=>{
   if(!validate()) return;
   const text = summary(), name = form.elements.jmeno.value.trim();
   let sent = false;
-  if(FORM_ENDPOINT){
-    try{ const r = await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({_subject:'Poptávka z webu: '+name, email:form.elements.email.value.trim(), zprava:text})}); sent = r.ok; }catch(_){ sent=false; }
-  }
+  const btn = form.querySelector('button[type=submit]'); const btnTxt = btn.textContent;
+  if(WEB3FORMS_KEY || FORM_ENDPOINT){ btn.disabled = true; btn.textContent = 'Odesílám…'; }
+  const val = n => (form.elements[n]?.value||'').trim();
+  const services = [...form.querySelectorAll('[name=sluzby]:checked')].map(x=>x.value).join(', ');
+  try{
+    if(WEB3FORMS_KEY){
+      const r = await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body:JSON.stringify({access_key:WEB3FORMS_KEY, subject:'Poptávka z webu: '+name, from_name:'Andrea Signature – web', replyto:val('email'),
+          'Jméno':val('jmeno'), 'Firma':val('firma'), 'E-mail':val('email'), 'Telefon':val('telefon'), 'Služby':services, 'Termín':val('termin'), 'Rozpočet':val('rozpocet'), 'Podklady':val('odkaz'), 'Popis projektu':val('zprava')})});
+      const j = await r.json().catch(()=>({})); sent = r.ok && j.success !== false;
+    } else if(FORM_ENDPOINT){
+      const r = await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({_subject:'Poptávka z webu: '+name, email:val('email'), zprava:text})}); sent = r.ok;
+    }
+  }catch(_){ sent=false; }
+  btn.disabled = false; btn.textContent = btnTxt;
   const mail = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent('Poptávka z webu: '+name)}&body=${encodeURIComponent(text)}`;
   form.querySelectorAll('.field,.consent,.form-foot').forEach(x=>x.hidden=true);
   done.hidden = false;
