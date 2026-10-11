@@ -68,7 +68,7 @@ h1,h2,h3{letter-spacing:-.01em}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* ---------- TILES (kategorie) ---------- */
-.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.cats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
 .cat{position:relative;aspect-ratio:3/4.3;display:grid;place-items:center;border:0;padding:0;cursor:pointer;overflow:hidden;background:var(--blush);font:inherit}
 .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .cat::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(10,10,10,.28);transition:background .4s}
@@ -275,7 +275,8 @@ fieldset.field{border:0;margin:0;padding:0}
 }
 
 /* ---------- editorial overrides ---------- */
-.work-head h2,.process h2,.inq-intro h2,.case-title h1,.case-cols h2,.item h3,.next strong,.contact h2,.done h3{color:var(--ink);font-weight:400}
+.work-head h2,.process h2,.inq-intro h2,.case-title h1,.case-cols h2,.item h3,.contact h2,.done h3{color:var(--ink);font-weight:400}
+.next strong{color:#fff;font-weight:400}
 .work{border-top:1px solid var(--line)}
 .work-head h2{font-size:clamp(40px,5vw,72px)}
 .chip{border-radius:999px;border-color:var(--line);color:var(--ink);font-family:var(--f-mono);font-weight:600;letter-spacing:.18em;font-size:9px}
@@ -342,6 +343,7 @@ fieldset.field{border:0;margin:0;padding:0}
   .meet .small{grid-column:2;grid-row:2;align-self:start}
   .meet-text{grid-column:1/-1;grid-row:3;padding-top:24px;max-width:none}
   .cats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat:last-child{grid-column:1/-1;aspect-ratio:16/8}
   .featured{grid-template-columns:1fr}
   .feat-tall,.feat-side{margin-top:0}
 }
@@ -404,13 +406,13 @@ fieldset.field{border:0;margin:0;padding:0}
       <h2><span class="num">02</span>Vybrané<br>projekty</h2>
       <a class="btn" href="#portfolio" data-home>Celé portfolio</a>
     </div>
-    <a class="feat-tall" href="#emily"><img src="assets/emily.jpg" alt="Emily, AI krátký film" loading="lazy"></a>
+    <a class="feat-tall" href="#emily"><img src="assets/emily.jpg" alt="Mini film" loading="lazy"></a>
     <div class="feat-side">
       <img src="assets/c21.jpg" alt="Century 21 promo" loading="lazy">
       <small>Nejnovější projekty z portfolia</small>
       <ol>
         <li><a href="#century-21"><b>01.</b><span>Century 21 promo</span><i>→</i></a></li>
-        <li><a href="#emily"><b>02.</b><span>Emily, krátký film</span><i>→</i></a></li>
+        <li><a href="#emily"><b>02.</b><span>Mini film</span><i>→</i></a></li>
         <li><a href="#phric-memories"><b>03.</b><span>Phric memories</span><i>→</i></a></li>
       </ol>
     </div>
@@ -504,13 +506,14 @@ fieldset.field{border:0;margin:0;padding:0}
 
 <script>
 const CATS = {
-  "ai-video": {name:"AI videa", text:"Krátké filmy, oživené fotografie a cinematické reels. Příběh, který by se klasicky natáčel týdny, vznikne za pár dní."},
-  "ai-foto":  {name:"AI fotografie", text:"Editorial portréty, kampaně a konceptuální vizuály ve stylu módních magazínů, bez ateliéru a produkce."},
-  "produkt":  {name:"Produktové foto & video", text:"Produkt v prostředí, které mu sluší: od reklamních záběrů a lifestyle scén po brandové filmy."},
-  "reality":  {name:"Reality & home staging", text:"Promo videa nemovitostí, virtuální home staging, proměny před a po a makléř v hlavní roli."}
+  "reality":  {name:"Reality & home staging", text:"Promo videa nemovitostí, virtuální home staging, proměny před a po a prodejní prospekty."},
+  "ai-video": {name:"AI videa", text:"Krátké filmy, oživené fotografie a virální videa pro sociální sítě."},
+  "kampane":  {name:"Kampaně & produkty", text:"Produkt v prostředí, které mu sluší: kampaně, produktové fotografie a brandové filmy."},
+  "modely":   {name:"Modelky & editorial", text:"Editorial portréty a módní série ve stylu magazínů, bez ateliéru a produkce."},
+  "covery":   {name:"Covery", text:"Konceptuální titulní strany magazínů s produktem nebo modelkou v hlavní roli."}
 };
 
-/* media: {t:'v'|'i', src, poster, ar, cap, w} */
+/* media: {t:'v'|'i', src, ar, cap, w} */
 const P = [
  {id:"century-21", title:"Century 21", em:"promo", script:"Nemovitost, kterou si zapamatujete",
   cats:["reality","ai-video"], client:"Makléř Century 21", format:"Video 3:2 · 62 s", tools:"Kling AI · Nano Banana · CapCut",
@@ -521,52 +524,43 @@ const P = [
   quote:"Kupující se rozhoduje během prvních vteřin. Proto musí první záběr prodávat.",
   gallery:[{t:"i",src:"c21-f1",ar:"3/2",w:6},{t:"i",src:"c21-f2",ar:"3/2",w:6},{t:"i",src:"c21",ar:"3/2",w:12,cap:"Lokalita"}]},
 
- {id:"promeny", title:"Proměny", em:"prostoru", script:"Virtuální home staging",
-  cats:["reality","ai-video"], client:"Realitní makléř", format:"Video 3:2 · 16 s", tools:"Nano Banana · Kling AI",
-  cover:"promeny", main:{t:"v",src:"promeny",ar:"3/2"}, wide:true,
-  brief:"Prázdný byt se na fotkách špatně prodává. Kupující si neumí představit, jak by v něm žil.",
-  solution:"Z fotografie prázdné místnosti jsem vygenerovala zařízený interiér a obě verze propojila plynulým přechodem. Dispozice, okna i výhled zůstávají věrné skutečnosti.",
-  output:"Krátké video před/po pro inzerát a sociální sítě, plus statické vizualizace zařízeného bytu.",
-  quote:"Stejný byt, stejné světlo. Jen najednou vypadá jako domov.",
-  gallery:[{t:"i",src:"promeny-f1",ar:"3/2",w:6,cap:"Před"},{t:"i",src:"promeny-f3",ar:"3/2",w:6,cap:"Po"},{t:"v",src:"switch",ar:"1506/1080",w:12,cap:"Přechod v reálném čase"}]},
+ {id:"home-staging", title:"Home", em:"staging", script:"Interiér, ve kterém se chce bydlet",
+  cats:["reality","ai-video"], client:"Realitní makléř", format:"Video 16:9 a 9:16 · foto 3:2", tools:"Nano Banana · Kling AI",
+  cover:"rk-loft", coverAr:"3/2", main:{t:"v",src:"loft",ar:"16/9"}, wide:true,
+  brief:"Ukázat obytný prostor tak, aby si kupující dokázal představit život v něm: materiály, světlo a výhled.",
+  solution:"Virtuálně zařízený interiér a pomalé cinematické průlety kamerou. Dispozice, okna i výhled zůstávají věrné skutečnosti.",
+  output:"Horizontální video pro web a portály, vertikální verze pro sociální sítě a statická vizualizace.",
+  quote:"Prázdný byt neprodává. Domov, který si kupující dokáže představit, ano.",
+  gallery:[{t:"i",src:"rk-loft",ar:"3/2",w:12,cap:"Vizualizace"},{t:"v",src:"interier",ar:"9/16",w:4,cap:"Vertikální verze"},{t:"i",src:"interier-f2",ar:"9/16",w:4},{t:"i",src:"interier-f3",ar:"9/16",w:4}]},
 
  {id:"rekonstrukce", title:"Před a po", em:"rekonstrukci", script:"Půdní vestavba za deset vteřin",
-  cats:["reality","ai-video"], client:"Developer / makléř", format:"Video 9:16 · 2 × 10 s", tools:"Kling AI · Seedance",
+  cats:["reality","ai-video"], client:"Developer / makléř", format:"Video 9:16 · 10 s", tools:"Kling AI · Seedance",
   cover:"workers1", main:{t:"v",src:"workers1",ar:"9/16"},
   brief:"Ukázat potenciál nedokončeného podkroví ještě před začátkem stavebních prací.",
   solution:"Timelapse, ve kterém řemeslníci během pár vteřin promění hrubou stavbu v hotový obytný prostor. Trámy, okna a rozměry vycházejí z reálných fotek.",
-  output:"Dvě varianty vertikálního videa pro reels a stories.",
+  output:"Vertikální video pro reels a stories.",
   quote:"Hrubá stavba neprodává. Hotový domov ano.",
-  gallery:[{t:"v",src:"workers2",ar:"9/16",w:4,cap:"Varianta 2"},{t:"i",src:"workers1-f1",ar:"9/16",w:4,cap:"Před"},{t:"i",src:"workers1-f3",ar:"9/16",w:4,cap:"Po"}]},
-
- {id:"makler-v-hlavni-roli", title:"Makléřka", em:"v hlavní roli", script:"Osobní značka makléře",
-  cats:["reality","ai-video"], client:"Makléřka", format:"Video 16:9 · 11 s + 9:16", tools:"Nano Banana · Kling AI",
-  cover:"mala", main:{t:"v",src:"mala",ar:"16/9"}, wide:true,
-  brief:"Makléř je tvář nabídky. Cílem bylo spojit prezentaci bytu s osobností makléřky, bez natáčení na místě.",
-  solution:"Makléřku jsem z jejích fotografií přirozeně zasadila do interiéru nabízeného bytu. Video ji provází prostorem až po závěrečný záběr na pohovce.",
-  output:"Horizontální video pro web a portály a vertikální verze pro sociální sítě.",
-  quote:"Lidé nakupují od lidí. I když jde o byt.",
-  gallery:[{t:"i",src:"mala-f1",ar:"16/9",w:6},{t:"i",src:"mala-f3",ar:"16/9",w:6},{t:"v",src:"interier",ar:"9/16",w:4,cap:"Vertikální verze"},{t:"i",src:"interier-f2",ar:"9/16",w:4},{t:"i",src:"interier-f3",ar:"9/16",w:4}]},
-
- {id:"loft", title:"Loft", em:"s výhledem", script:"Cinematický průlet interiérem",
-  cats:["reality","ai-video"], client:"Realitní makléř", format:"Video 16:9 · 10 s", tools:"Kling AI",
-  cover:"loft", main:{t:"v",src:"loft",ar:"16/9"}, wide:true,
-  brief:"Krátký úvodní záběr, který na první pohled ukáže hlavní přednost bytu: obytný prostor s velkými okny a výhledem.",
-  solution:"Pomalý kamerový pohyb podél prosklené stěny s důrazem na materiály, beton, dřevo a teplé světlo.",
-  output:"Úvodní záběr pro prodejní video a smyčka na web.",
-  quote:"Deset vteřin, jeden pohyb kamery a celý příběh bytu.",
-  gallery:[{t:"i",src:"loft-f1",ar:"16/9",w:4},{t:"i",src:"loft-f2",ar:"16/9",w:4},{t:"i",src:"loft-f3",ar:"16/9",w:4}]},
+  gallery:[{t:"i",src:"workers1-f1",ar:"9/16",w:6,cap:"Před"},{t:"i",src:"workers1-f3",ar:"9/16",w:6,cap:"Po"}]},
 
  {id:"prospekt", title:"Prodejní", em:"prospekt", script:"Vizualizace a půdorysy",
-  cats:["reality","ai-foto"], client:"Developer", format:"Tiskový i online prospekt", tools:"ChatGPT · Nano Banana",
-  cover:"prospekt", coverAr:"3/2", main:{t:"i",src:"prospekt",ar:"3/2"}, wide:true,
+  cats:["reality"], client:"Developer", format:"Tiskový i online prospekt", tools:"ChatGPT · Nano Banana",
+  cover:"prospekt", main:{t:"i",src:"prospekt",ar:"3/2"}, wide:true,
   brief:"Přehledný prospekt rodinného domu: exteriér, dispozice podlaží, základní informace a situace pozemku na jedné straně.",
   solution:"Vizualizace domu a zahrady, čisté 2D půdorysy s výměrami místností a jednotný grafický styl celého listu.",
   output:"Prospekt pro tisk a web, samostatné půdorysy bytu i domu.",
   quote:"Půdorys, kterému rozumí každý kupující.",
   gallery:[{t:"i",src:"pudorys-dum",ar:"3/2",w:8,cap:"Rodinný dům 5+kk"},{t:"i",src:"pudorys-byt",ar:"4/3",w:4,cap:"Byt"}]},
 
- {id:"emily", title:"Emily", em:"krátký film", script:"Pohádka natočená bez kamery",
+ {id:"shop-the-look", title:"Shop", em:"the look", script:"Interiér jako katalog",
+  cats:["reality","kampane"], client:"Volná tvorba", format:"Grafika 5:6", tools:"Nano Banana · ChatGPT",
+  cover:"shopthelook", main:{t:"i",src:"shopthelook",ar:"5/6"},
+  brief:"Ukázat, jak může e-shop s nábytkem nebo realitní kancelář prodávat celý styl místo jednotlivých kusů.",
+  solution:"Zařízený obývací pokoj s popisky konkrétních produktů (komoda, koberec, konferenční stolek, sedačka) a jejich výřezy pod scénou.",
+  output:"Grafika pro Instagram a newsletter.",
+  quote:"Lidé nekupují stolek. Kupují pocit z celého pokoje.",
+  gallery:[]},
+
+ {id:"emily", title:"Mini", em:"film", script:"Pohádka natočená bez kamery",
   cats:["ai-video"], client:"Osobní projekt", format:"Video 2:3 · 85 s", tools:"Midjourney · Kling AI · Seedance · CapCut",
   cover:"emily", main:{t:"v",src:"emily",ar:"2/3"},
   brief:"Krátký film o dívce, která projde starými dveřmi do světa snů. Test, kam až se dá s AI dojít v emocích a vyprávění.",
@@ -584,8 +578,17 @@ const P = [
   quote:"Některé fotky si zaslouží, aby se znovu nadechly.",
   gallery:[{t:"v",src:"tata",ar:"9/16",w:4,cap:"Táta a já"},{t:"i",src:"tata-f1",ar:"9/16",w:4},{t:"i",src:"tata-f3",ar:"9/16",w:4},{t:"i",src:"rodice-f1",ar:"1/1",w:6},{t:"i",src:"rodice-f3",ar:"1/1",w:6}]},
 
+ {id:"viral-dog", title:"Viral", em:"dog", script:"Krátké video pro sociální sítě",
+  cats:["ai-video"], client:"Volná tvorba", format:"Video 9:16 · 12 s", tools:"Nano Banana · Kling AI · CapCut",
+  cover:"dog", main:{t:"v",src:"dog",ar:"9/16"},
+  brief:"Krátké vtipné video s výrazným hlavním hrdinou, které zaujme během prvních vteřin a chce se sdílet.",
+  solution:"Pejsek se slunečními brýlemi na procházce městem, dynamický střih, detailní záběry a rytmus přizpůsobený reels.",
+  output:"Vertikální video pro Instagram, TikTok a reels.",
+  quote:"Na sociálních sítích vyhrává ten, kdo zastaví palec.",
+  gallery:[{t:"i",src:"dog-f1",ar:"9/16",w:4},{t:"i",src:"dog-f2",ar:"9/16",w:4},{t:"i",src:"dog-foto",ar:"9/16",w:4,cap:"Fotografie"}]},
+
  {id:"phric-memories", title:"Phric", em:"memories", script:"Brandový film o vůni vzpomínek",
-  cats:["produkt","ai-video"], client:"Phric.cz", format:"Video 2:3 · 30 s", tools:"Midjourney · Kling AI · CapCut",
+  cats:["kampane","ai-video"], client:"Phric.cz", format:"Video 2:3 · 30 s", tools:"Midjourney · Kling AI · CapCut",
   cover:"memories", main:{t:"v",src:"memories",ar:"2/3"},
   brief:"Italské bytové vůně prodávají emoci. Značka chtěla film, který vůni spojí se vzpomínkou na dětství.",
   solution:"Babička otevírá knihu a vůně ji přenese do italské vesnice, do citronového sadu a k malé holčičce. Teplá filmová paleta, jemný přechod mezi časy.",
@@ -593,60 +596,69 @@ const P = [
   quote:"Vůně je nejrychlejší cesta do vzpomínek.",
   gallery:[{t:"i",src:"memories-f1",ar:"2/3",w:4},{t:"i",src:"memories-f2",ar:"2/3",w:4},{t:"i",src:"memories-f3",ar:"2/3",w:4}]},
 
- {id:"phric-vune-italie", title:"Vůně", em:"Itálie", script:"Produktové foto a video",
-  cats:["produkt","ai-foto"], client:"Phric.cz", format:"Foto 4:5, 1:1 · video 9:16", tools:"Midjourney · Nano Banana · Kling AI",
-  cover:"phric-editorial", main:{t:"v",src:"difuzer",ar:"9/16"},
-  brief:"Sada vizuálů pro difuzéry a parfémy: produkt v prémiovém prostředí, které odkazuje na italský původ.",
-  solution:"Editorial s tváří značky na římské terase, čisté lifestyle aranžmá na mramoru a produktové video s citronem a vodou.",
-  output:"Fotografie pro e-shop a sociální sítě, krátké produktové video.",
+ {id:"phric-kampan", title:"Phric", em:"kampaň", script:"Vůně Itálie v každém záběru",
+  cats:["kampane"], client:"Phric.cz", format:"Foto 4:5, 1:1 · video 9:16", tools:"Midjourney · Nano Banana · Kling AI",
+  cover:"kampan-vespa", main:{t:"i",src:"kampan-vespa",ar:"4/5"},
+  brief:"Kampaň pro italské bytové a autovůně: produkt v prostředí, které odkazuje na jeho původ a způsob použití.",
+  solution:"Italská ulička s vespou, vůně v písku, autovůně na koženém sedadle a čisté lifestyle aranžmá na mramoru. K tomu krátké produktové video.",
+  output:"Fotografie pro e-shop, sociální sítě a reklamu, produktové video.",
   quote:"Produkt se neprodává na bílém pozadí. Prodává se v příběhu.",
-  gallery:[{t:"i",src:"phric-editorial",ar:"4/5",w:6,cap:"Editorial"},{t:"i",src:"phric-italie",ar:"4/5",w:6,cap:"Lifestyle"}]},
+  gallery:[{t:"i",src:"kampan-pisek",ar:"4/5",w:6},{t:"i",src:"kampan-auto",ar:"4/5",w:6},{t:"v",src:"difuzer",ar:"9/16",w:4,cap:"Produktové video"},{t:"i",src:"phric-italie",ar:"9/16",w:8,cap:"Lifestyle"}]},
 
- {id:"la-dolce-vita", title:"La Dolce", em:"Vita", script:"Koncept titulní strany",
-  cats:["produkt","ai-foto"], client:"Volná tvorba", format:"Foto 4:5", tools:"Midjourney · Nano Banana",
-  cover:"dolcevita", main:{t:"i",src:"dolcevita",ar:"4/5"},
-  brief:"Konceptuální obálka letního módního magazínu s doplňkem v hlavní roli.",
-  solution:"Pobřeží Amalfi, slaměná kabelka v písku a typografie magazínu. Produkt je hlavní hrdina a prostředí mu dává příběh.",
-  output:"Obálka pro portfolio a sociální sítě.",
-  quote:"Léto, které se dá prodat na jedné fotce.",
-  gallery:[]},
+ {id:"produktova-fotografie", title:"Produktová", em:"fotografie", script:"Detail, který vzbudí chuť",
+  cats:["kampane"], client:"Volná tvorba", format:"Foto 9:16 a 1:1", tools:"Midjourney · Nano Banana",
+  cover:"produkt-olej", main:{t:"i",src:"produkt-olej",ar:"9/16"},
+  brief:"Produktové fotografie, které fungují bez textu: chuť, vůně a materiál musí být vidět na první pohled.",
+  solution:"Olivový olej stékající po čerstvé focaccie a lahvička vůně zamrzlá v ledu s květy. Výrazné světlo a čisté pozadí.",
+  output:"Fotografie pro e-shop, reklamu a sociální sítě.",
+  quote:"Dobrá produktová fotka se dá skoro ochutnat.",
+  gallery:[{t:"i",src:"produkt-led",ar:"1/1",w:12,cap:"Phric v ledu"}]},
 
- {id:"shop-the-look", title:"Shop", em:"the look", script:"Interiér jako katalog",
-  cats:["produkt","ai-foto"], client:"Volná tvorba", format:"Grafika 5:6", tools:"Nano Banana · ChatGPT",
-  cover:"shopthelook", main:{t:"i",src:"shopthelook",ar:"5/6"},
-  brief:"Ukázat, jak může e-shop s nábytkem prodávat celý styl místo jednotlivých kusů.",
-  solution:"Zařízený obývací pokoj s popisky konkrétních produktů (komoda, koberec, konferenční stolek, sedačka) a jejich výřezy pod scénou.",
-  output:"Grafika pro Instagram a newsletter.",
-  quote:"Lidé nekupují stolek. Kupují pocit z celého pokoje.",
-  gallery:[]},
+ {id:"parizsky-sik", title:"Pařížský", em:"šik", script:"Módní série v ulicích Paříže",
+  cats:["modely","covery"], client:"Volná tvorba", format:"Foto 9:16 · cover 3:4", tools:"Midjourney · Nano Banana",
+  cover:"model-pariz1", main:{t:"i",src:"model-pariz1",ar:"9/16"},
+  brief:"Konzistentní módní série s jednou modelkou v různých záběrech, připravená jako podklad pro magazínovou obálku.",
+  solution:"Stejná modelka, outfit i světlo zlaté hodinky ve třech záběrech. Z série vznikla obálka ve stylu módního magazínu.",
+  output:"Série fotografií a titulní strana.",
+  quote:"Konzistence dělá ze tří fotek příběh.",
+  gallery:[{t:"i",src:"model-pariz2",ar:"9/16",w:4},{t:"i",src:"model-pariz3",ar:"9/16",w:4},{t:"i",src:"cover-paris",ar:"3/4",w:4,cap:"Cover"}]},
 
- {id:"domov", title:"Domov", em:"kampaň", script:"Jediná pilulka na radost",
-  cats:["ai-foto"], client:"Volná tvorba", format:"Foto 4:5 a 1:1", tools:"Midjourney · Canva",
-  cover:"pilulka", main:{t:"i",src:"pilulka",ar:"4/5"},
-  brief:"Konceptuální kampaň o domově jako o tom nejlepším, co si člověk může dopřát.",
-  solution:"Dva surreálné vizuály: obývací pokoj ukrytý v kapsli a miniaturní byt pod klávesou Enter. Krátký claim dotahuje pointu.",
-  output:"Série vizuálů pro sociální sítě.",
-  quote:"Stiskni Enter a tvé sny se promění v realitu.",
-  gallery:[{t:"i",src:"enter",ar:"1/1",w:12,cap:"Stiskni Enter"}]},
+ {id:"italske-leto", title:"Italské", em:"léto", script:"Lifestyle na trhu a v ulicích",
+  cats:["modely"], client:"Volná tvorba", format:"Foto 9:16 a 2:3", tools:"Midjourney · Nano Banana",
+  cover:"model-trh", main:{t:"i",src:"model-trh",ar:"9/16"},
+  brief:"Lifestyle záběry s atmosférou italského léta pro značky, které prodávají pocit z dovolené.",
+  solution:"Přirozené momenty na trhu s ovocem a na schodech náměstí. Teplé světlo, autentické detaily a styling.",
+  output:"Lifestyle fotografie pro sociální sítě a kampaně.",
+  quote:"Nejlepší reklama vypadá jako vzpomínka z dovolené.",
+  gallery:[{t:"i",src:"model-italie",ar:"2/3",w:12}]},
 
  {id:"editorial", title:"Editorial", em:"portréty", script:"Módní fotografie bez ateliéru",
-  cats:["ai-foto"], client:"Volná tvorba", format:"Foto 2:3", tools:"Midjourney · Nano Banana",
+  cats:["modely"], client:"Volná tvorba", format:"Foto 2:3 a 3:4", tools:"Midjourney · Nano Banana",
   cover:"red", main:{t:"i",src:"red",ar:"2/3"},
-  brief:"Série portrétů, která ukazuje rozsah stylů: od zimního editorialu po černobílou klasiku a pohádkový koncept.",
+  brief:"Série portrétů, která ukazuje rozsah stylů: od zimního editorialu po černobílou klasiku a přirozené beauty portréty.",
   solution:"Každý snímek má vlastní světlo, styling a náladu. Důraz na texturu látek, pleť a filmový charakter.",
   output:"Portrétní série pro portfolio a sociální sítě.",
   quote:"Styl je rozhodnutí. AI ho jen vykreslí.",
-  gallery:[{t:"i",src:"bw1",ar:"2/3",w:4},{t:"i",src:"bw2",ar:"2/3",w:4},{t:"i",src:"pink",ar:"3/4",w:4}]}
+  gallery:[{t:"i",src:"bw1",ar:"2/3",w:6},{t:"i",src:"bw2",ar:"2/3",w:6},{t:"i",src:"model-portret1",ar:"3/4",w:6},{t:"i",src:"model-portret2",ar:"3/4",w:6}]},
+
+ {id:"covery", title:"Magazínové", em:"covery", script:"Titulní strany s příběhem",
+  cats:["covery","kampane"], client:"Volná tvorba", format:"Foto 4:5 a 3:4", tools:"Midjourney · Nano Banana",
+  cover:"dolcevita", main:{t:"i",src:"dolcevita",ar:"4/5"},
+  brief:"Konceptuální obálky módních magazínů s doplňkem nebo modelkou v hlavní roli.",
+  solution:"Pobřeží Amalfi se slaměnou kabelkou v písku a pařížská ulice při zlaté hodince. Kompozice, typografie a styl magazínu.",
+  output:"Obálky pro portfolio a sociální sítě.",
+  quote:"Léto, které se dá prodat na jedné fotce.",
+  gallery:[{t:"i",src:"cover-paris",ar:"3/4",w:12,cap:"Parisian chic"}]}
 ];
 
 const $ = s => document.querySelector(s);
 const A = n => `assets/${n}`;
-const imgSrc = n => /-f\d$/.test(n) ? A(n+'.webp') : (/^(c21|promeny|switch|workers1|workers2|mala|interier|loft|emily|rodice|tata|memories|difuzer)$/.test(n) ? A(n+'.jpg') : A(n+'.webp'));
-const isVid = n => /^(c21|promeny|switch|workers1|workers2|mala|interier|loft|emily|rodice|tata|memories|difuzer)$/.test(n);
+const imgSrc = n => /-f\d$/.test(n) ? A(n+'.webp') : (/^(c21|workers1|interier|loft|emily|rodice|tata|memories|difuzer|dog)$/.test(n) ? A(n+'.jpg') : A(n+'.webp'));
+const isVid = n => /^(c21|workers1|interier|loft|emily|rodice|tata|memories|difuzer|dog)$/.test(n);
 const playIcon = '<span class="play" aria-hidden="true"><svg width="12" height="14" viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z" fill="currentColor"/></svg></span>';
 
 /* categories */
-const TILE = {"ai-video":"emily.jpg","ai-foto":"red.webp","produkt":"phric-editorial.webp","reality":"promeny.jpg"};
+const TILE = {"reality":"rk-loft.webp","ai-video":"emily.jpg","kampane":"kampan-vespa.webp","modely":"model-pariz1.webp","covery":"dolcevita.webp"};
 $('#cats').innerHTML = Object.entries(CATS).map(([k,c])=>{
   const n = P.filter(p=>p.cats.includes(k)).length;
   return `<button class="cat" data-filter="${k}" aria-label="${c.name}: zobrazit projekty"><img src="assets/${TILE[k]}" alt="" loading="lazy"><span class="lbl">${c.name}<small>${n} projektů</small></span></button>`;
