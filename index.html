@@ -3,27 +3,20 @@
 <meta name="description" content="Andrea Signature — AI videa, AI fotografie, produktové vizuály a realitní videa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Mrs+Saint+Delafield&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@300;400;600&display=swap">
 <style>
-/* Layout: editorial one-pager 1:1 podle reference — šedorůžový hero s výřezem postavy přes obří titulek,
-   krémová sekce o mně, běžící titulek, betonová sekce s vínovými kartami kategorií, portfolio, kontakt.
-   Detail case study je druhý pohled téže stránky (#id projektu). Jediný světlý vzhled záměrně. */
+/* Layout: vzdušný editorial — číslované sekce, asymetrický úvod ANDREA SIGNATURE, běžící nápis,
+   dlaždice kategorií přes celou šířku, pás výroků, vybrané projekty, portfolio, spolupráce, poptávka, kontakt.
+   Barvy loga: bílá, černá, červená jen v číslech sekcí a drobných detailech. Jediný světlý vzhled. */
 :root{
   color-scheme: light;
-  --wine:#6B211C;        /* titulky, tlačítka */
-  --wine-deep:#5A1A16;
-  --card:#6E231E;        /* karty hodnot */
-  --ink:#3A1B17;         /* běžný text */
-  --cream:#FBF9EE;       /* krémové pozadí */
-  --paper:#FFFFFF;
-  --blush:#E6DCD6;       /* hero */
-  --blush-2:#D9CEC8;
-  --concrete:#3B3734;
-  --line:rgba(107,33,28,.22);
-  --f-display:"Instrument Serif","Didot","Bodoni 72",Georgia,serif;
-  --f-mono:"Courier Prime","Courier New",ui-monospace,monospace;
-  --f-script:"Mrs Saint Delafield","Snell Roundhand","Brush Script MT",cursive;
-  --gut:clamp(16px,4vw,64px);
+  --wine:#151515; --wine-deep:#000; --card:#E3DFD8; --ink:#151515; --cream:#FCFBF8; --paper:#FFFFFF;
+  --blush:#ECE9E4; --blush-2:#E3DFD8; --concrete:#151515; --line:rgba(21,21,21,.16);
+  --sand:#E3DFD8; --mute:#66625E; --red:#A41A1A;
+  --f-display:"Cormorant Garamond","Garamond",Georgia,serif;
+  --f-mono:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --f-script:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(16px,5vw,72px);
   --max:1240px;
 }
 *{box-sizing:border-box}
@@ -37,76 +30,80 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--wine);outline-offset:3px}
 .wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
 
+
+body{font-weight:300;font-size:13px;line-height:1.7}
+h1,h2,h3{letter-spacing:-.01em}
+.num{font-family:var(--f-mono);font-size:10px;font-weight:600;color:var(--red);vertical-align:top;margin-right:12px;letter-spacing:.06em;font-style:normal}
+.script{font-family:var(--f-mono);font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);display:block;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:10px 26px;font-family:var(--f-mono);font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;transition:border-color .2s,color .2s,background .2s}
+.btn:hover{border-color:var(--red);color:var(--red)}
+.btn.solid{background:var(--ink);color:var(--cream)}
+.btn.solid:hover{background:var(--red);border-color:var(--red);color:#fff}
+.btn.sm{padding:8px 20px}
+
 /* ---------- NAV ---------- */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(230,220,214,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
-.nav.on-cream{background:rgba(251,249,238,.9)}
-.nav .wrap{display:flex;align-items:center;gap:24px;min-height:76px;max-width:none}
-.brand{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0}
-.brand img{height:62px;width:auto;display:block}
-@media (max-width:700px){.brand img{height:40px}}
-.menu{display:flex;gap:18px;margin-left:auto;list-style:none;padding:0;margin-block:0;align-items:center}
-.menu a{font-family:var(--f-display);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--wine);padding-block:4px;border-bottom:1px solid transparent}
-.menu a:hover,.menu a[aria-current="true"]{border-color:var(--wine)}
-.ig{display:inline-flex;color:var(--wine)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--wine);color:var(--cream);border:0;border-radius:999px;padding:12px 26px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .2s,transform .2s}
-.btn:hover{background:var(--wine-deep);transform:translateY(-1px)}
-.btn.sm{padding:10px 20px;font-size:10px}
-.burger{display:none;margin-left:auto;background:none;border:0;color:var(--wine);cursor:pointer;padding:8px}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(252,251,248,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px;max-width:none}
+.brand{display:inline-flex;text-decoration:none;flex-shrink:0}
+.brand img{height:50px;width:auto;display:block}
+.menu{display:flex;gap:clamp(14px,2.4vw,34px);list-style:none;margin:0;padding:0;align-items:center}
+.menu a{font-family:var(--f-mono);font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.menu a:hover{color:var(--red)}
+.burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
 
-/* ---------- HERO ---------- */
-.hero{position:relative;background:radial-gradient(120% 90% at 50% 30%,#EAE1DC 0%,var(--blush) 55%,var(--blush-2) 100%);overflow:hidden}
-.hero-in{position:relative;max-width:1440px;margin-inline:auto;padding-inline:var(--gut);min-height:clamp(520px,56vw,820px)}
-.hero h1{position:relative;z-index:1;text-align:center;text-transform:uppercase;font-size:clamp(58px,12.6vw,200px);line-height:.84;padding-top:clamp(28px,3.4vw,52px);letter-spacing:-.025em;white-space:nowrap}
-.hero h1 em{font-style:italic;text-transform:none;letter-spacing:-.03em}
-.hero-figure{position:absolute;z-index:2;left:50%;bottom:0;transform:translateX(-50%);width:clamp(320px,46vw,700px);pointer-events:none}
-.hero-figure img{width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(60,30,25,.12))}
-.tag{position:absolute;z-index:3;font-family:var(--f-display);text-transform:uppercase;color:var(--ink);font-size:clamp(13px,1.25vw,18px);line-height:1.12;letter-spacing:.01em}
-.tag svg{display:block;margin-top:10px;color:var(--ink)}
-.tag.t1{left:calc(var(--gut) + 3vw);top:46%}
-.tag.t2{left:calc(var(--gut) + 9vw);top:66%}
-.tag.t3{right:calc(var(--gut) + 6vw);top:48%;text-align:left}
-.hero .cta{position:absolute;z-index:3;right:calc(var(--gut) + 2vw);bottom:clamp(36px,5vw,72px)}
-
-/* ---------- ABOUT ---------- */
-.about{background:var(--cream);padding-block:clamp(64px,8vw,120px) clamp(40px,6vw,80px)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px) clamp(24px,3vw,40px);position:relative}
-.script{font-family:var(--f-script);color:var(--wine);font-size:clamp(30px,3.2vw,46px);line-height:1;display:block}
-.about-head{grid-column:1/-1;text-align:center;max-width:760px;margin-inline:auto;position:relative}
-.about-head .script{text-align:left;margin:0 0 4px -2vw}
-.about-head h2{font-size:clamp(30px,3.6vw,54px);line-height:1;text-transform:uppercase}
-.lead-mono{font-size:clamp(13px,1.15vw,16px);text-transform:uppercase;letter-spacing:.02em;line-height:1.45;color:var(--ink)}
-.about-copy{display:grid;gap:14px;align-content:start;max-width:46ch;font-size:13px}
-.about-copy .btn{justify-self:start;margin-top:12px}
-.polaroid{position:absolute;right:0;top:-12px;width:clamp(110px,11vw,160px);background:var(--paper);padding:8px 8px 26px;box-shadow:0 10px 24px rgba(58,27,23,.14);transform:rotate(4deg)}
-.polaroid::before{content:"";position:absolute;top:-10px;left:50%;width:56px;height:20px;transform:translateX(-50%) rotate(-3deg);background:rgba(232,220,190,.8)}
-.polaroid img{aspect-ratio:1/1;object-fit:cover;width:100%}
-.about-photo{justify-self:center;width:min(100%,360px);aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
-.about-left{display:grid;gap:clamp(28px,4vw,48px);justify-items:start}
-.about-left .lead-mono{max-width:32ch}
+/* ---------- MEET (úvod) ---------- */
+.meet{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,3.4fr) minmax(0,2.4fr);grid-template-rows:auto auto 1fr;gap:0 clamp(16px,2.4vw,30px);padding-block:clamp(20px,3vw,40px) clamp(40px,5vw,70px)}
+.meet h1{grid-column:2/4;grid-row:1;font-size:clamp(40px,5vw,72px);line-height:.95;text-transform:uppercase;padding:0 0 clamp(20px,3vw,34px) clamp(20px,6vw,90px);color:var(--ink)}
+.meet .tall{grid-column:2;grid-row:2/4;width:100%;height:auto;aspect-ratio:5/6;object-fit:cover;object-position:center top;filter:grayscale(1) contrast(1.04)}
+.meet .small{grid-column:3;grid-row:2;width:100%;height:auto;aspect-ratio:1/1.3;object-fit:cover}
+.meet-text{grid-column:1;grid-row:3;align-self:end;display:grid;gap:16px;padding-bottom:12px;max-width:32ch;justify-items:start}
+.meet-text h2{font-size:clamp(19px,1.7vw,23px);line-height:1.1;text-transform:uppercase;color:var(--ink);letter-spacing:0}
+.meet-text p{font-size:12px;color:var(--mute)}
 
 /* ---------- MARQUEE ---------- */
-.marquee{overflow:hidden;background:var(--cream);position:relative;padding-top:clamp(20px,3vw,40px)}
-.marquee-track{display:flex;width:max-content;animation:mq 38s linear infinite}
-.marquee span{font-family:var(--f-display);color:var(--ink);text-transform:uppercase;font-size:clamp(64px,10vw,150px);line-height:.8;padding-right:.45em;white-space:nowrap;letter-spacing:-.02em}
-.marquee::after{content:"";position:absolute;left:0;right:0;bottom:22%;height:1px;background:var(--ink);opacity:.9}
+.marquee{overflow:hidden;white-space:nowrap;padding-top:6px}
+.marquee-track{display:inline-flex;animation:mq 36s linear infinite}
+.marquee-track span,.marquee-track i{font-family:var(--f-display);font-weight:300;font-size:clamp(50px,7.4vw,108px);line-height:1;text-transform:uppercase;letter-spacing:-.02em;padding-right:.3em;font-style:normal}
+.marquee-track i{color:var(--red)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
-/* ---------- CATEGORIES (concrete) ---------- */
-.concrete{position:relative;background-color:var(--concrete);padding-block:clamp(56px,7vw,100px);overflow:hidden;isolation:isolate}
-.concrete::before{content:"";position:absolute;inset:-20%;z-index:-1;
-  background:
-   repeating-linear-gradient(118deg,rgba(0,0,0,0) 0 70px,rgba(0,0,0,.42) 70px 140px,rgba(0,0,0,0) 140px 175px,rgba(0,0,0,.32) 175px 200px),
-   radial-gradient(80% 60% at 20% 20%,rgba(255,240,225,.10),transparent 60%);
-  filter:blur(10px)}
-.concrete::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.35;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.9'/></svg>")}
-.cats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:760px;margin-inline:auto}
-.cat{background:var(--card);color:var(--cream);padding:clamp(22px,2.4vw,34px);display:grid;gap:12px;align-content:start;text-decoration:none;min-height:clamp(180px,17vw,230px);transition:background .25s,transform .25s;cursor:pointer;border:0;text-align:left;font:inherit}
-.cat:hover{background:#7A2822;transform:translateY(-3px)}
-.cat h3{color:var(--cream);font-size:clamp(17px,1.5vw,21px);text-transform:uppercase;letter-spacing:.01em}
-.cat p{font-size:12px;line-height:1.5;opacity:.92}
-.cat .more{margin-top:auto;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;display:flex;justify-content:space-between}
+/* ---------- TILES (kategorie) ---------- */
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.cat{position:relative;aspect-ratio:3/4.3;display:grid;place-items:center;border:0;padding:0;cursor:pointer;overflow:hidden;background:var(--blush);font:inherit}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.cat::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(10,10,10,.28);transition:background .4s}
+.cat:hover img{transform:scale(1.05)}
+.cat:hover::before{background:rgba(10,10,10,.42)}
+.cat .lbl{position:relative;z-index:2;display:grid;gap:12px;justify-items:center;color:#fff;font-family:var(--f-mono);font-size:9.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;padding:0 12px}
+.cat .lbl::after{content:"";width:60px;height:1px;background:rgba(255,255,255,.85);transition:background .3s,width .3s}
+.cat:hover .lbl::after{background:var(--red);width:80px}
+.cat .lbl small{font-size:8.5px;letter-spacing:.2em;opacity:.8;font-weight:400;order:3}
 
+/* ---------- QUOTES ---------- */
+.band{background:var(--sand);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:clamp(48px,6vw,84px) var(--gut)}
+.band button{background:none;border:0;cursor:pointer;color:var(--ink);padding:10px}
+.band button:hover{color:var(--red)}
+.band figure{margin:0;text-align:center;display:grid;gap:18px;justify-items:center}
+.band blockquote{margin:0;font-family:var(--f-display);font-size:clamp(19px,2vw,26px);line-height:1.2;text-transform:uppercase;max-width:34ch;min-height:3.6em;transition:opacity .3s}
+.band figcaption{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+
+/* ---------- FEATURED ---------- */
+.featured{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,3fr) minmax(0,3fr);gap:clamp(16px,2.4vw,30px);padding-block:clamp(56px,7vw,100px);align-items:start}
+.feat-head{display:grid;gap:20px;justify-items:start}
+.feat-head h2{font-size:clamp(36px,4.2vw,60px);line-height:.95;text-transform:uppercase;color:var(--ink)}
+.feat-tall{display:block;margin-top:clamp(40px,6vw,90px);position:relative;overflow:hidden}
+.feat-tall img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.feat-tall:hover img{transform:scale(1.03)}
+.feat-side{display:grid;gap:14px;margin-top:clamp(70px,9vw,130px)}
+.feat-side img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.feat-side small{font-size:11px;color:var(--mute)}
+.feat-side ol{list-style:none;margin:0;padding:0}
+.feat-side li a{display:grid;grid-template-columns:48px 1fr auto;align-items:baseline;border-top:1px solid var(--line);padding-block:10px;text-decoration:none}
+.feat-side li:last-child a{border-bottom:1px solid var(--line)}
+.feat-side li b{font-family:var(--f-display);font-weight:400;font-size:20px;color:var(--mute)}
+.feat-side li span{font-family:var(--f-display);font-size:17px;text-transform:uppercase}
+.feat-side li i{font-style:normal;font-size:12px;transition:transform .25s,color .25s}
+.feat-side li a:hover i{transform:translateX(4px);color:var(--red)}
 /* ---------- PORTFOLIO ---------- */
 .work{padding-block:clamp(64px,8vw,120px)}
 .work-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:20px 40px;margin-bottom:clamp(28px,4vw,48px)}
@@ -276,6 +273,85 @@ fieldset.field{border:0;margin:0;padding:0}
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
 }
+
+/* ---------- editorial overrides ---------- */
+.work-head h2,.process h2,.inq-intro h2,.case-title h1,.case-cols h2,.item h3,.next strong,.contact h2,.done h3{color:var(--ink);font-weight:400}
+.work{border-top:1px solid var(--line)}
+.work-head h2{font-size:clamp(40px,5vw,72px)}
+.chip{border-radius:999px;border-color:var(--line);color:var(--ink);font-family:var(--f-mono);font-weight:600;letter-spacing:.18em;font-size:9px}
+.chip[aria-pressed="true"],.chip:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.badge{background:var(--paper);color:var(--ink);font-weight:600;letter-spacing:.18em;font-size:8.5px}
+.play{background:var(--paper);color:var(--ink)}
+.item .meta{color:var(--mute);opacity:1;font-weight:600;font-size:9px}
+.item h3{font-size:clamp(20px,1.8vw,26px)}
+.item h3 em{font-style:italic;text-transform:none}
+.process{background:var(--paper);border-color:var(--line)}
+.process h2{font-size:clamp(34px,4vw,56px)}
+.steps li{border-top-color:var(--ink);font-size:12.5px}
+.steps li::before{color:var(--red);font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.06em}
+.steps b{color:var(--ink);font-size:22px}
+.inquiry{border-top-color:var(--line)}
+.inq-intro h2{font-size:clamp(38px,4.8vw,68px)}
+.inq-intro ul{color:var(--ink);font-weight:600;font-size:10px}
+.inq-intro li::before{color:var(--red)}
+.form{box-shadow:none;border:1px solid var(--line)}
+.field label,.field legend,.opts label{color:var(--ink);font-weight:600}
+.opts span{border-color:var(--line)}
+.opts input:checked + span{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.consent input{accent-color:var(--ink)}
+.form .btn[type=submit]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.form .btn[type=submit]:hover{background:var(--red);border-color:var(--red);color:#fff}
+.contact{background:var(--sand);color:var(--ink)}
+.contact h2{font-size:clamp(52px,9vw,140px);text-transform:uppercase}
+.contact h2 em{text-transform:none}
+.contact .script{color:var(--mute)}
+.contact-grid{border-top-color:var(--line)}
+.contact dt{opacity:1;color:var(--mute);font-weight:600}
+.contact dd{font-size:clamp(22px,2.2vw,30px)}
+.contact .btn{background:transparent;color:var(--ink)}
+.qr{background:var(--paper)}
+.qr small{color:var(--ink)}
+.foot{opacity:1;font-weight:600;font-size:9px;letter-spacing:.2em}
+.foot img{width:140px}
+.case-hero{background:var(--cream)}
+.case-title h1{font-size:clamp(46px,8vw,130px)}
+.case-title h1 em{text-transform:none}
+.case-title .script{margin-bottom:.8em}
+.case-meta{border-color:var(--line)}
+.case-meta dt{color:var(--mute);opacity:1;font-weight:600}
+.case-meta dd{font-size:clamp(18px,1.6vw,22px)}
+.case-cols h2{font-size:clamp(26px,2.6vw,36px)}
+.case-cols p{font-size:13px}
+.case-quote p{color:var(--ink);font-weight:300}
+.back{color:var(--ink);font-weight:600}
+.back:hover{color:var(--red)}
+.gallery figcaption{color:var(--ink);background:var(--paper);font-weight:600}
+.next{background:var(--ink)}
+.next small{font-weight:600}
+.done{background:var(--cream)}
+
+/* ---------- responsive (new parts) ---------- */
+@media (max-width:900px){
+  .menu{display:none}
+  .burger{display:inline-flex}
+  .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:8px;padding:16px var(--gut) 24px;background:var(--cream);border-bottom:1px solid var(--line)}
+  .menu.open a{font-size:12px}
+  .meet{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .meet h1{grid-column:1/-1;padding-left:0}
+  .meet .tall{grid-column:1;grid-row:2;height:auto}
+  .meet .small{grid-column:2;grid-row:2;align-self:start}
+  .meet-text{grid-column:1/-1;grid-row:3;padding-top:24px;max-width:none}
+  .cats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .featured{grid-template-columns:1fr}
+  .feat-tall,.feat-side{margin-top:0}
+}
+@media (max-width:520px){
+  .cats{grid-template-columns:1fr}
+  .cat{aspect-ratio:16/11}
+  .band{grid-template-columns:1fr;justify-items:center}
+  .band button{display:none}
+  .brand img{height:42px}
+}
 </style>
 </head><body>
 
@@ -284,76 +360,66 @@ fieldset.field{border:0;margin:0;padding:0}
     <a class="brand" href="#top" data-home aria-label="Andrea Signature, úvod"><img src="assets/logo.png" alt="Andrea Signature" width="900" height="353"></a>
     <ul class="menu" id="menu">
       <li><a href="#o-mne" data-home>O mně</a></li>
+      <li><a href="#sluzby" data-home>Služby</a></li>
       <li><a href="#portfolio" data-home>Portfolio</a></li>
-      <li class="opt"><a href="#portfolio" data-filter="ai-video">AI videa</a></li>
-      <li class="opt"><a href="#portfolio" data-filter="ai-foto">AI foto</a></li>
-      <li class="opt"><a href="#portfolio" data-filter="produkt">Produkty</a></li>
-      <li class="opt"><a href="#portfolio" data-filter="reality">Reality</a></li>
       <li><a href="#spoluprace" data-home>Spolupráce</a></li>
       <li><a href="#poptavka" data-home>Poptávka</a></li>
       <li><a href="#kontakt" data-home>Kontakt</a></li>
-      <li><a class="ig" href="https://www.instagram.com/andrea.signature/" target="_blank" rel="noopener" aria-label="Instagram @andrea.signature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></li>
+      <li><a class="ig" href="https://www.instagram.com/andrea.signature/" target="_blank" rel="noopener" aria-label="Instagram @andrea.signature"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></li>
     </ul>
-    <a class="btn sm" href="#poptavka" data-home>Nezávazná poptávka</a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="26" height="18" viewBox="0 0 26 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 2h26M0 9h26M0 16h26"/></svg></button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 1h22M0 6h22M0 11h22"/></svg></button>
   </div>
 </header>
 
 <main id="app">
 <!-- ================= HOME ================= -->
 <div id="home" class="view">
-  <section class="hero" id="top">
-    <div class="hero-in">
-      <h1>Ahoj, <em>jsem</em> Andrea</h1>
-      <div class="hero-tags">
-        <p class="tag t1">AI creator pro<br>reality a značky
-          <svg width="46" height="22" viewBox="0 0 46 22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M2 14c6-8 14-10 20-4 3 3 1 7-2 5s1-8 8-9c5-1 10 2 15 6"/><path d="M38 9l5 3-5 3"/></svg>
-        </p>
-        <p class="tag t2">AI video · foto<br>· produkt
-          <svg width="52" height="18" viewBox="0 0 52 18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M2 4c10 9 26 12 44 8"/><path d="M41 7l6 5-7 3"/></svg>
-        </p>
-        <p class="tag t3">Fotky a videa<br>bez natáčení
-          <svg width="48" height="34" viewBox="0 0 48 34" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M44 3C40 14 30 12 32 6s10 0 4 10C31 24 18 28 6 30"/><path d="M11 25l-5 5 7 2"/></svg>
-        </p>
-      </div>
-      <div class="hero-figure"><img src="assets/hero.webp" alt="Andrea, AI creator" width="1100" height="1142"></div>
-      <a class="btn cta" href="#portfolio" data-home>Moje práce</a>
-    </div>
-  </section>
-
-  <section class="about" id="o-mne">
-    <div class="wrap about-grid">
-      <div class="about-head">
-        <span class="script">Ahoj, jsem Andrea</span>
-        <h2>AI creator, vizuální tvůrkyně<br>a váš partner pro obsah</h2>
-      </div>
-      <figure class="polaroid" aria-hidden="true"><img src="assets/me-2.webp" alt=""></figure>
-      <div class="about-left">
-        <p class="lead-mono">Dlouho jsem hledala způsob, jak ukázat prostor, produkt nebo příběh přesně tak, jak ho vidím. S AI ho konečně mám.</p>
-        <img class="about-photo" src="assets/me-4.webp" alt="Andrea v bílém kostýmu v interiéru" loading="lazy">
-      </div>
-      <div class="about-copy">
-        <p>Vytvářím AI videa, AI fotografie a produktové vizuály pro realitní makléře a značky, které chtějí vypadat jako z magazínu.</p>
-        <p>Prázdný byt proměním v zařízený domov, z jedné produktové fotky udělám celou kampaň a ze staré fotografie krátký film. Spojuji generativní AI s citem pro světlo, kompozici a příběh, takže výsledek nepůsobí „uměle“, ale <i>prémiově</i>.</p>
-        <p>Pracuji s nástroji Midjourney, Nano Banana, Kling AI, Seedance, Runway a CapCut. Každý vizuál ale začíná u vás: u vaší značky, nemovitosti a klienta, kterého chcete oslovit.</p>
-        <a class="btn" href="#poptavka" data-home>Spolupracujme</a>
-      </div>
+  <section class="wrap meet" id="top">
+    <h1><span class="num">01</span>Andrea Signature</h1>
+    <img class="tall" src="assets/me-1.webp" alt="Andrea, AI creator" width="893" height="1600">
+    <img class="small" src="assets/phric-italie.webp" alt="Produktová fotografie Phric" width="1024" height="1024">
+    <div class="meet-text" id="o-mne">
+      <h2>AI creator / vizuální tvůrkyně</h2>
+      <p>Jsem Andrea. Vytvářím AI videa, AI fotografie a produktové vizuály pro realitní makléře a značky. Prázdný byt proměním v zařízený domov, z jedné produktové fotky udělám kampaň a ze staré fotografie krátký film.</p>
+      <p>Spojuji generativní AI s citem pro světlo, kompozici a příběh. Pracuji s nástroji Midjourney, Nano Banana, Kling AI, Seedance, Runway a CapCut.</p>
+      <a class="btn" href="#portfolio" data-home>Moje práce <svg width="16" height="8" viewBox="0 0 16 8" fill="none" stroke="currentColor"><path d="M0 4h15M11 1l4 3-4 3"/></svg></a>
     </div>
   </section>
 
   <div class="marquee" aria-hidden="true"><div class="marquee-track">
-    <span>Moje práce</span><span>Moje práce</span><span>Moje práce</span><span>Moje práce</span>
-    <span>Moje práce</span><span>Moje práce</span><span>Moje práce</span><span>Moje práce</span>
+    <span>Pojďme tvořit spolu</span><i>\</i><span>Pojďme tvořit spolu</span><i>\</i><span>Pojďme tvořit spolu</span><i>\</i>
+    <span>Pojďme tvořit spolu</span><i>\</i><span>Pojďme tvořit spolu</span><i>\</i><span>Pojďme tvořit spolu</span><i>\</i>
   </div></div>
 
-  <section class="concrete" aria-label="Kategorie">
-    <div class="wrap"><div class="cats" id="cats"></div></div>
+  <section class="cats" id="sluzby" aria-label="Kategorie"><div class="cats" id="cats" style="display:contents"></div></section>
+
+  <section class="band" aria-label="Výroky">
+    <button type="button" id="q-prev" aria-label="Předchozí"><svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M18 5H1M5 1L1 5l4 4"/></svg></button>
+    <figure><blockquote id="q-text">„AI není zkratka. Je to nový štětec. Výsledek ale vždycky začíná u vašeho příběhu.“</blockquote><figcaption>Andrea J. Fryk</figcaption></figure>
+    <button type="button" id="q-next" aria-label="Další"><svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
+  </section>
+
+  <section class="wrap featured" aria-label="Vybrané projekty">
+    <div class="feat-head">
+      <h2><span class="num">02</span>Vybrané<br>projekty</h2>
+      <a class="btn" href="#portfolio" data-home>Celé portfolio</a>
+    </div>
+    <a class="feat-tall" href="#emily"><img src="assets/emily.jpg" alt="Emily, AI krátký film" loading="lazy"></a>
+    <div class="feat-side">
+      <img src="assets/c21.jpg" alt="Century 21 promo" loading="lazy">
+      <small>Nejnovější projekty z portfolia</small>
+      <ol>
+        <li><a href="#century-21"><b>01.</b><span>Century 21 promo</span><i>→</i></a></li>
+        <li><a href="#emily"><b>02.</b><span>Emily, krátký film</span><i>→</i></a></li>
+        <li><a href="#phric-memories"><b>03.</b><span>Phric memories</span><i>→</i></a></li>
+      </ol>
+    </div>
   </section>
 
   <section class="work" id="portfolio">
     <div class="wrap">
       <div class="work-head">
-        <div><span class="script">Vybrané projekty</span><h2>Portfolio</h2></div>
+        <div><h2><span class="num">03</span>Portfolio</h2></div>
         <div class="filters" id="filters" role="group" aria-label="Filtr kategorií"></div>
       </div>
       <div class="grid" id="grid"></div>
@@ -362,7 +428,7 @@ fieldset.field{border:0;margin:0;padding:0}
 
   <section class="process" id="spoluprace">
     <div class="wrap">
-      <h2>Jak spolupracujeme</h2>
+      <h2><span class="num">04</span>Jak spolupracujeme</h2>
       <ol class="steps">
         <li><b>Poptávka</b><span>Pošlete mi fotky, odkaz na nemovitost nebo produkt a krátce popište, co potřebujete.</span></li>
         <li><b>Návrh</b><span>Připravím koncept, styl a formát (reels 9:16, web 16:9, tisk) a cenu na míru.</span></li>
@@ -380,8 +446,7 @@ fieldset.field{border:0;margin:0;padding:0}
 <section class="inquiry" id="poptavka">
   <div class="wrap inq-grid">
     <div class="inq-intro">
-      <span class="script">Napište mi</span>
-      <h2>Nezávazná<br>poptávka</h2>
+      <h2><span class="num">05</span>Nezávazná<br>poptávka</h2>
       <p>Vyplňte pár základních údajů a ozvu se vám s návrhem a cenou. Stačí orientačně, detaily doladíme spolu.</p>
       <ul><li>AI videa a reels</li><li>AI a produktové fotografie</li><li>Reality a home staging</li></ul>
     </div>
@@ -416,8 +481,7 @@ fieldset.field{border:0;margin:0;padding:0}
 <!-- ================= CONTACT (shared) ================= -->
 <section class="contact" id="kontakt">
   <div class="wrap">
-    <span class="script">Máte projekt?</span>
-    <h2>Pojďme <em>spolu</em><br>tvořit</h2>
+    <h2><span class="num">06</span>Pojďme <em>spolu</em><br>tvořit</h2>
     <div class="contact-grid">
       <dl>
         <div><dt>E-mail</dt><dd><a href="mailto:aj.fryk@gmail.com">aj.fryk@gmail.com</a></dd></div>
@@ -430,7 +494,7 @@ fieldset.field{border:0;margin:0;padding:0}
       <div class="qr"><img src="assets/qr.png" alt="QR kód na Instagram @andrea.signature" width="112" height="112"><small>Instagram</small></div>
     </div>
     <div class="foot">
-      <img src="assets/logo-light.png" alt="Andrea Signature" width="150" height="59">
+      <img src="assets/logo.png" alt="Andrea Signature" width="150" height="59">
       <span>AI visuals · video · branding</span>
       <span>© 2026 Andrea Signature</span>
     </div>
@@ -582,10 +646,16 @@ const isVid = n => /^(c21|promeny|switch|workers1|workers2|mala|interier|loft|em
 const playIcon = '<span class="play" aria-hidden="true"><svg width="12" height="14" viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z" fill="currentColor"/></svg></span>';
 
 /* categories */
+const TILE = {"ai-video":"emily.jpg","ai-foto":"red.webp","produkt":"phric-editorial.webp","reality":"promeny.jpg"};
 $('#cats').innerHTML = Object.entries(CATS).map(([k,c])=>{
   const n = P.filter(p=>p.cats.includes(k)).length;
-  return `<button class="cat" data-filter="${k}"><h3>${c.name}</h3><p>${c.text}</p><span class="more"><span>${n} projektů</span><span>Zobrazit →</span></span></button>`;
+  return `<button class="cat" data-filter="${k}" aria-label="${c.name}: zobrazit projekty"><img src="assets/${TILE[k]}" alt="" loading="lazy"><span class="lbl">${c.name}<small>${n} projektů</small></span></button>`;
 }).join('');
+/* quotes */
+const QUOTES=["„AI není zkratka. Je to nový štětec. Výsledek ale vždycky začíná u vašeho příběhu.“","„Prázdný byt neprodává. Domov, který si kupující dokáže představit, ano.“","„Produkt se neprodává na bílém pozadí. Prodává se v příběhu.“"];
+let qi=0; const qt=$('#q-text');
+function showQ(d){ qi=(qi+d+QUOTES.length)%QUOTES.length; qt.style.opacity=0; setTimeout(()=>{qt.textContent=QUOTES[qi]; qt.style.opacity=1;},250); }
+$('#q-prev').addEventListener('click',()=>showQ(-1)); $('#q-next').addEventListener('click',()=>showQ(1));
 
 /* filters */
 $('#filters').innerHTML = `<button class="chip" data-f="all" aria-pressed="true">Vše</button>` +
@@ -743,9 +813,10 @@ form.addEventListener('submit', async e=>{
 
 /* nav tint + burger */
 const nav = $('#nav'), menu = $('#menu'), burger = $('#burger');
-function tint(){ const h = home.hidden ? 0 : ($('.hero')?.offsetHeight||0) - 76; nav.classList.toggle('on-cream', home.hidden ? window.scrollY > 300 : window.scrollY > h); }
+function tint(){ const h = home.hidden ? 0 : 0; nav.classList.toggle('on-cream', home.hidden ? window.scrollY > 300 : window.scrollY > h); }
 addEventListener('scroll',tint,{passive:true}); tint();
 function closeMenu(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
 burger.addEventListener('click',()=>{ const o=menu.classList.toggle('open'); burger.setAttribute('aria-expanded',o); });
 </script>
+
 </body></html>
