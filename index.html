@@ -355,12 +355,18 @@ fieldset.field{border:0;margin:0;padding:0}
   .band button{display:none}
   .brand img{height:42px}
 }
+
+.wm{display:inline-block;font-family:var(--f-display);font-weight:400;font-size:clamp(22px,2.3vw,34px);letter-spacing:.03em;text-transform:uppercase;color:var(--ink);line-height:1;white-space:nowrap}
+.wm span{color:var(--red);margin-left:.28em}
+.meet{padding-top:clamp(28px,4vw,56px)}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:520px){.wm{font-size:20px}}
 </style>
 </head><body>
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" data-home aria-label="Andrea Signature, úvod"><img src="assets/logo.png" alt="Andrea Signature" width="900" height="353"></a>
+    <a class="brand wm" href="#top" data-home aria-label="Andrea Signature, úvod">Andrea <span>Signature</span></a>
     <ul class="menu" id="menu">
       <li><a href="#o-mne" data-home>O mně</a></li>
       <li><a href="#sluzby" data-home>Služby</a></li>
@@ -378,7 +384,7 @@ fieldset.field{border:0;margin:0;padding:0}
 <!-- ================= HOME ================= -->
 <div id="home" class="view">
   <section class="wrap meet" id="top">
-    <h1><span class="num">01</span>Andrea Signature</h1>
+    <h1 class="sr-only">Andrea Signature</h1>
     <img class="tall" src="assets/me-1.webp" alt="Andrea, AI creator" width="893" height="1600">
     <img class="small" src="assets/phric-italie.webp" alt="Produktová fotografie Phric" width="1024" height="1024">
     <div class="meet-text" id="o-mne">
