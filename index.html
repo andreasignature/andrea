@@ -1,0 +1,738 @@
+<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Andrea Signature</title>
+<meta name="description" content="Andrea Signature — AI videa, AI fotografie, produktové vizuály a realitní videa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Mrs+Saint+Delafield&display=swap">
+<style>
+/* Layout: editorial one-pager 1:1 podle reference — šedorůžový hero s výřezem postavy přes obří titulek,
+   krémová sekce o mně, běžící titulek, betonová sekce s vínovými kartami kategorií, portfolio, kontakt.
+   Detail case study je druhý pohled téže stránky (#id projektu). Jediný světlý vzhled záměrně. */
+:root{
+  color-scheme: light;
+  --wine:#6B211C;        /* titulky, tlačítka */
+  --wine-deep:#5A1A16;
+  --card:#6E231E;        /* karty hodnot */
+  --ink:#3A1B17;         /* běžný text */
+  --cream:#FBF9EE;       /* krémové pozadí */
+  --paper:#FFFFFF;
+  --blush:#E6DCD6;       /* hero */
+  --blush-2:#D9CEC8;
+  --concrete:#3B3734;
+  --line:rgba(107,33,28,.22);
+  --f-display:"Instrument Serif","Didot","Bodoni 72",Georgia,serif;
+  --f-mono:"Courier Prime","Courier New",ui-monospace,monospace;
+  --f-script:"Mrs Saint Delafield","Snell Roundhand","Brush Script MT",cursive;
+  --gut:clamp(16px,4vw,64px);
+  --max:1240px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--f-mono);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;color:var(--wine);margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(230,220,214,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
+.nav.on-cream{background:rgba(251,249,238,.9)}
+.nav .wrap{display:flex;align-items:center;gap:24px;min-height:76px;max-width:none}
+.brand{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0}
+.brand img{height:62px;width:auto;display:block}
+@media (max-width:700px){.brand img{height:40px}}
+.menu{display:flex;gap:18px;margin-left:auto;list-style:none;padding:0;margin-block:0;align-items:center}
+.menu a{font-family:var(--f-display);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--wine);padding-block:4px;border-bottom:1px solid transparent}
+.menu a:hover,.menu a[aria-current="true"]{border-color:var(--wine)}
+.ig{display:inline-flex;color:var(--wine)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--wine);color:var(--cream);border:0;border-radius:999px;padding:12px 26px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .2s,transform .2s}
+.btn:hover{background:var(--wine-deep);transform:translateY(-1px)}
+.btn.sm{padding:10px 20px;font-size:10px}
+.burger{display:none;margin-left:auto;background:none;border:0;color:var(--wine);cursor:pointer;padding:8px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;background:radial-gradient(120% 90% at 50% 30%,#EAE1DC 0%,var(--blush) 55%,var(--blush-2) 100%);overflow:hidden}
+.hero-in{position:relative;max-width:1440px;margin-inline:auto;padding-inline:var(--gut);min-height:clamp(520px,56vw,820px)}
+.hero h1{position:relative;z-index:1;text-align:center;text-transform:uppercase;font-size:clamp(58px,12.6vw,200px);line-height:.84;padding-top:clamp(28px,3.4vw,52px);letter-spacing:-.025em;white-space:nowrap}
+.hero h1 em{font-style:italic;text-transform:none;letter-spacing:-.03em}
+.hero-figure{position:absolute;z-index:2;left:50%;bottom:0;transform:translateX(-50%);width:clamp(320px,46vw,700px);pointer-events:none}
+.hero-figure img{width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(60,30,25,.12))}
+.tag{position:absolute;z-index:3;font-family:var(--f-display);text-transform:uppercase;color:var(--ink);font-size:clamp(13px,1.25vw,18px);line-height:1.12;letter-spacing:.01em}
+.tag svg{display:block;margin-top:10px;color:var(--ink)}
+.tag.t1{left:calc(var(--gut) + 3vw);top:46%}
+.tag.t2{left:calc(var(--gut) + 9vw);top:66%}
+.tag.t3{right:calc(var(--gut) + 6vw);top:48%;text-align:left}
+.hero .cta{position:absolute;z-index:3;right:calc(var(--gut) + 2vw);bottom:clamp(36px,5vw,72px)}
+
+/* ---------- ABOUT ---------- */
+.about{background:var(--cream);padding-block:clamp(64px,8vw,120px) clamp(40px,6vw,80px)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px) clamp(24px,3vw,40px);position:relative}
+.script{font-family:var(--f-script);color:var(--wine);font-size:clamp(30px,3.2vw,46px);line-height:1;display:block}
+.about-head{grid-column:1/-1;text-align:center;max-width:760px;margin-inline:auto;position:relative}
+.about-head .script{text-align:left;margin:0 0 4px -2vw}
+.about-head h2{font-size:clamp(30px,3.6vw,54px);line-height:1;text-transform:uppercase}
+.lead-mono{font-size:clamp(13px,1.15vw,16px);text-transform:uppercase;letter-spacing:.02em;line-height:1.45;color:var(--ink)}
+.about-copy{display:grid;gap:14px;align-content:start;max-width:46ch;font-size:13px}
+.about-copy .btn{justify-self:start;margin-top:12px}
+.polaroid{position:absolute;right:0;top:-12px;width:clamp(110px,11vw,160px);background:var(--paper);padding:8px 8px 26px;box-shadow:0 10px 24px rgba(58,27,23,.14);transform:rotate(4deg)}
+.polaroid::before{content:"";position:absolute;top:-10px;left:50%;width:56px;height:20px;transform:translateX(-50%) rotate(-3deg);background:rgba(232,220,190,.8)}
+.polaroid img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.about-photo{justify-self:center;width:min(100%,360px);aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.about-left{display:grid;gap:clamp(28px,4vw,48px);justify-items:start}
+.about-left .lead-mono{max-width:32ch}
+
+/* ---------- MARQUEE ---------- */
+.marquee{overflow:hidden;background:var(--cream);position:relative;padding-top:clamp(20px,3vw,40px)}
+.marquee-track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.marquee span{font-family:var(--f-display);color:var(--ink);text-transform:uppercase;font-size:clamp(64px,10vw,150px);line-height:.8;padding-right:.45em;white-space:nowrap;letter-spacing:-.02em}
+.marquee::after{content:"";position:absolute;left:0;right:0;bottom:22%;height:1px;background:var(--ink);opacity:.9}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- CATEGORIES (concrete) ---------- */
+.concrete{position:relative;background-color:var(--concrete);padding-block:clamp(56px,7vw,100px);overflow:hidden;isolation:isolate}
+.concrete::before{content:"";position:absolute;inset:-20%;z-index:-1;
+  background:
+   repeating-linear-gradient(118deg,rgba(0,0,0,0) 0 70px,rgba(0,0,0,.42) 70px 140px,rgba(0,0,0,0) 140px 175px,rgba(0,0,0,.32) 175px 200px),
+   radial-gradient(80% 60% at 20% 20%,rgba(255,240,225,.10),transparent 60%);
+  filter:blur(10px)}
+.concrete::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.35;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.9'/></svg>")}
+.cats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:760px;margin-inline:auto}
+.cat{background:var(--card);color:var(--cream);padding:clamp(22px,2.4vw,34px);display:grid;gap:12px;align-content:start;text-decoration:none;min-height:clamp(180px,17vw,230px);transition:background .25s,transform .25s;cursor:pointer;border:0;text-align:left;font:inherit}
+.cat:hover{background:#7A2822;transform:translateY(-3px)}
+.cat h3{color:var(--cream);font-size:clamp(17px,1.5vw,21px);text-transform:uppercase;letter-spacing:.01em}
+.cat p{font-size:12px;line-height:1.5;opacity:.92}
+.cat .more{margin-top:auto;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;display:flex;justify-content:space-between}
+
+/* ---------- PORTFOLIO ---------- */
+.work{padding-block:clamp(64px,8vw,120px)}
+.work-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:20px 40px;margin-bottom:clamp(28px,4vw,48px)}
+.work-head h2{font-size:clamp(40px,6vw,88px);line-height:.9;text-transform:uppercase}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px;border:1px solid var(--wine);background:transparent;color:var(--wine);cursor:pointer;transition:all .2s}
+.chip[aria-pressed="true"],.chip:hover{background:var(--wine);color:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,32px) clamp(14px,1.8vw,24px)}
+.item{display:grid;gap:12px;text-decoration:none;cursor:pointer;background:none;border:0;padding:0;text-align:left;font:inherit;color:inherit}
+.thumb{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--blush)}
+.thumb img,.thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.thumb video{opacity:0}
+.item:hover .thumb img{transform:scale(1.04)}
+.item.playing .thumb video{opacity:1}
+.badge{position:absolute;left:12px;top:12px;z-index:2;background:var(--cream);color:var(--wine);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.play{position:absolute;right:12px;bottom:12px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(251,249,238,.92);display:grid;place-items:center;color:var(--wine)}
+.item .meta{display:flex;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);opacity:.8}
+.item h3{font-size:clamp(22px,2vw,28px);line-height:1;text-transform:uppercase}
+.item[hidden]{display:none}
+
+/* ---------- PROCESS ---------- */
+.process{background:var(--paper);border-block:1px solid var(--line);padding-block:clamp(56px,7vw,100px)}
+.process h2{font-size:clamp(32px,4vw,58px);text-transform:uppercase;line-height:1;margin-bottom:clamp(28px,4vw,48px);text-align:center}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,28px);list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;gap:10px;align-content:start;border-top:1px solid var(--wine);padding-top:16px;font-size:13px}
+.steps li::before{content:"0" counter(s);font-family:var(--f-display);font-size:40px;color:var(--wine);line-height:1}
+.steps b{font-family:var(--f-display);font-weight:400;font-size:22px;text-transform:uppercase;color:var(--wine);line-height:1}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--wine);color:var(--cream);padding-block:clamp(64px,8vw,120px) 40px;overflow:hidden}
+.contact h2{color:var(--cream);font-size:clamp(56px,11vw,170px);line-height:.85;text-transform:uppercase}
+.contact h2 em{font-style:italic;text-transform:none}
+.contact .script{color:var(--cream);opacity:.9}
+.contact-grid{display:grid;grid-template-columns:1.3fr 1fr auto;gap:clamp(24px,4vw,56px);align-items:end;margin-top:clamp(32px,5vw,64px);padding-top:28px;border-top:1px solid rgba(251,249,238,.3)}
+.contact dl{display:grid;gap:14px;margin:0}
+.contact dt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.contact dd{margin:0;font-family:var(--f-display);font-size:clamp(22px,2.2vw,32px);line-height:1.1;user-select:all;overflow-wrap:anywhere}
+.contact dd a{text-decoration:none}
+.contact dd a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.qr{background:var(--cream);padding:10px;width:132px}
+.qr img{width:100%;image-rendering:pixelated}
+.qr small{display:block;color:var(--wine);font-size:9px;letter-spacing:.1em;text-transform:uppercase;text-align:center;margin-top:6px}
+.contact .btn{background:var(--cream);color:var(--wine)}
+.contact .btn:hover{background:#fff}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:clamp(48px,6vw,80px);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.foot img{width:150px;height:auto}
+
+/* ---------- INQUIRY FORM ---------- */
+.inquiry{background:var(--cream);padding-block:clamp(64px,8vw,120px);border-top:1px solid var(--line)}
+.inq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.inq-intro{display:grid;gap:18px;position:sticky;top:110px}
+.inq-intro h2{font-size:clamp(40px,5.4vw,80px);line-height:.9;text-transform:uppercase}
+.inq-intro p{font-size:13px;max-width:40ch}
+.inq-intro ul{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--wine)}
+.inq-intro li::before{content:"— "}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 28px;background:var(--paper);padding:clamp(24px,3.5vw,48px);box-shadow:0 24px 60px rgba(58,27,23,.08)}
+.field{display:grid;gap:8px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label,.field legend{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);padding:0}
+.field label .req,.field legend .req{opacity:.6}
+.field input,.field select,.field textarea{font:inherit;font-size:14px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(58,27,23,.35);border-radius:0;padding:8px 0;width:100%;outline:none;transition:border-color .2s}
+.field textarea{min-height:120px;resize:vertical;border:1px solid rgba(58,27,23,.25);padding:12px}
+.field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--wine) 50%),linear-gradient(135deg,var(--wine) 50%,transparent 50%);background-position:calc(100% - 10px) 55%,calc(100% - 5px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:24px;cursor:pointer}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--wine)}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none;box-shadow:0 2px 0 var(--wine)}
+.field.err input,.field.err textarea,.field.err select{border-color:#B3261E}
+.field .msg{font-size:11px;color:#B3261E;min-height:0}
+fieldset.field{border:0;margin:0;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative;cursor:pointer;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--wine)}
+.opts input{position:absolute;opacity:0;width:1px;height:1px}
+.opts span{display:inline-block;padding:9px 14px;border:1px solid var(--wine);border-radius:999px;transition:all .2s}
+.opts input:checked + span{background:var(--wine);color:var(--cream)}
+.opts input:focus-visible + span{outline:2px solid var(--wine);outline-offset:2px}
+.consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.45}
+.consent input{accent-color:var(--wine);width:16px;height:16px;margin-top:2px;flex-shrink:0}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.form-foot small{font-size:11px;opacity:.7}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.done{grid-column:1/-1;display:grid;gap:14px;background:var(--cream);border:1px solid var(--line);padding:24px}
+.done h3{font-size:30px;text-transform:uppercase;line-height:1}
+.done pre{font-family:var(--f-mono);font-size:12px;white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);padding:14px;margin:0;max-height:260px;overflow:auto;user-select:all}
+.done .row{display:flex;flex-wrap:wrap;gap:10px}
+.btn.ghost{background:transparent;color:var(--wine);border:1px solid var(--wine)}
+.btn.ghost:hover{background:var(--wine);color:var(--cream)}
+@media (max-width:900px){.inq-grid{grid-template-columns:1fr}.inq-intro{position:static}}
+@media (max-width:560px){.form{grid-template-columns:1fr}}
+
+/* ---------- CASE STUDY VIEW ---------- */
+.case{background:var(--cream)}
+.case-hero{background:radial-gradient(120% 90% at 50% 20%,#EAE1DC 0%,var(--blush) 60%,var(--blush-2) 100%);padding-block:clamp(36px,5vw,64px) 0;overflow:hidden}
+.back{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);text-decoration:none;background:none;border:0;cursor:pointer;padding:0;font-family:var(--f-mono)}
+.back:hover{text-decoration:underline;text-underline-offset:4px}
+.case-title{margin-top:clamp(24px,3vw,40px);text-align:center}
+.case-title .script{margin-bottom:.12em}
+.case-title h1{text-transform:uppercase;font-size:clamp(48px,9vw,150px);line-height:.86;letter-spacing:-.02em}
+.case-title h1 em{font-style:italic;text-transform:none}
+.case-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(28px,4vw,48px);padding-block:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case-meta div{display:grid;gap:4px;min-width:0}
+.case-meta dt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);opacity:.75}
+.case-meta dd{margin:0;font-family:var(--f-display);font-size:clamp(17px,1.5vw,21px);color:var(--ink);line-height:1.15}
+.case-main{margin-top:clamp(28px,4vw,48px);display:flex;justify-content:center}
+.case-main video,.case-main img{max-height:min(82vh,860px);width:auto;max-width:100%;background:#1a1110;box-shadow:0 30px 60px rgba(58,27,23,.18)}
+.case-main.wide video,.case-main.wide img{width:100%;max-height:none;height:auto}
+.case-body{padding-block:clamp(56px,7vw,100px)}
+.case-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.case-cols section{display:grid;gap:14px;align-content:start}
+.case-cols h2{font-size:clamp(24px,2.4vw,34px);text-transform:uppercase;line-height:1}
+.case-cols p{font-size:13px;max-width:44ch}
+.case-quote{margin-block:clamp(48px,6vw,88px);text-align:center}
+.case-quote p{font-family:var(--f-display);font-style:italic;color:var(--wine);font-size:clamp(28px,3.6vw,52px);line-height:1.08;max-width:22ch;margin-inline:auto;text-wrap:balance}
+.gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(10px,1.4vw,18px)}
+.gallery figure{margin:0;grid-column:span 4;background:var(--blush);overflow:hidden;position:relative}
+.gallery figure.w6{grid-column:span 6}
+.gallery figure.w8{grid-column:span 8}
+.gallery figure.w12{grid-column:span 12}
+.gallery img,.gallery video{width:100%;height:100%;object-fit:cover;aspect-ratio:var(--ar,4/5)}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;background:var(--cream);color:var(--wine);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.next{display:block;position:relative;background:var(--concrete);color:var(--cream);text-decoration:none;overflow:hidden;cursor:pointer;border:0;width:100%;text-align:center;padding:0;font:inherit}
+.next img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45;transition:opacity .5s,transform 1.2s}
+.next:hover img{opacity:.6;transform:scale(1.03)}
+.next .in{position:relative;padding-block:clamp(64px,9vw,140px);display:grid;gap:10px;justify-items:center}
+.next small{font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.next strong{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,7vw,110px);line-height:.9;text-transform:uppercase}
+
+/* ---------- views ---------- */
+.view{animation:fade .5s ease both}
+@keyframes fade{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .menu li.opt{display:none}
+}
+@media (max-width:900px){
+  .menu{display:none}
+  .burger{display:inline-flex}
+  .nav .btn{display:none}
+  .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:4px;padding:16px var(--gut) 24px;background:var(--cream);border-bottom:1px solid var(--line)}
+  .menu.open li.opt{display:block}
+  .menu.open a{font-size:18px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case-cols{grid-template-columns:1fr}
+  .case-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .contact-grid .qr{grid-column:1}
+}
+@media (max-width:700px){
+  .hero-in{min-height:0;display:flex;flex-direction:column;align-items:center;padding-bottom:0}
+  .hero h1{font-size:clamp(44px,14.5vw,96px);white-space:normal;padding-top:28px}
+  .hero-figure{position:relative;left:auto;transform:none;width:min(92%,440px);margin-top:4px}
+  .tag{position:relative;inset:auto !important;text-align:center;font-size:13px}
+  .tag svg{display:none}
+  .hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:18px}
+  .hero .cta{display:none}
+  .hero-in{gap:0}
+  .about-grid{grid-template-columns:1fr}
+  .about-head .script{margin-left:0}
+  .polaroid{position:relative;top:0;justify-self:end;margin-top:-8px}
+  .about-head{display:grid}
+  .cats{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .gallery figure,.gallery figure.w6,.gallery figure.w8{grid-column:span 12}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (min-width:701px){.hero-tags{display:contents}}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+</style>
+</head><body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" data-home aria-label="Andrea Signature, úvod"><img src="assets/logo.png" alt="Andrea Signature" width="900" height="353"></a>
+    <ul class="menu" id="menu">
+      <li><a href="#o-mne" data-home>O mně</a></li>
+      <li><a href="#portfolio" data-home>Portfolio</a></li>
+      <li class="opt"><a href="#portfolio" data-filter="ai-video">AI videa</a></li>
+      <li class="opt"><a href="#portfolio" data-filter="ai-foto">AI foto</a></li>
+      <li class="opt"><a href="#portfolio" data-filter="produkt">Produkty</a></li>
+      <li class="opt"><a href="#portfolio" data-filter="reality">Reality</a></li>
+      <li><a href="#spoluprace" data-home>Spolupráce</a></li>
+      <li><a href="#poptavka" data-home>Poptávka</a></li>
+      <li><a href="#kontakt" data-home>Kontakt</a></li>
+      <li><a class="ig" href="https://www.instagram.com/andrea.signature/" target="_blank" rel="noopener" aria-label="Instagram @andrea.signature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></li>
+    </ul>
+    <a class="btn sm" href="#poptavka" data-home>Nezávazná poptávka</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="26" height="18" viewBox="0 0 26 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 2h26M0 9h26M0 16h26"/></svg></button>
+  </div>
+</header>
+
+<main id="app">
+<!-- ================= HOME ================= -->
+<div id="home" class="view">
+  <section class="hero" id="top">
+    <div class="hero-in">
+      <h1>Ahoj, <em>jsem</em> Andrea</h1>
+      <div class="hero-tags">
+        <p class="tag t1">AI creator pro<br>reality a značky
+          <svg width="46" height="22" viewBox="0 0 46 22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M2 14c6-8 14-10 20-4 3 3 1 7-2 5s1-8 8-9c5-1 10 2 15 6"/><path d="M38 9l5 3-5 3"/></svg>
+        </p>
+        <p class="tag t2">AI video · foto<br>· produkt
+          <svg width="52" height="18" viewBox="0 0 52 18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M2 4c10 9 26 12 44 8"/><path d="M41 7l6 5-7 3"/></svg>
+        </p>
+        <p class="tag t3">Fotky a videa<br>bez natáčení
+          <svg width="48" height="34" viewBox="0 0 48 34" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M44 3C40 14 30 12 32 6s10 0 4 10C31 24 18 28 6 30"/><path d="M11 25l-5 5 7 2"/></svg>
+        </p>
+      </div>
+      <div class="hero-figure"><img src="assets/hero.webp" alt="Andrea, AI creator" width="1100" height="1142"></div>
+      <a class="btn cta" href="#portfolio" data-home>Moje práce</a>
+    </div>
+  </section>
+
+  <section class="about" id="o-mne">
+    <div class="wrap about-grid">
+      <div class="about-head">
+        <span class="script">Ahoj, jsem Andrea</span>
+        <h2>AI creator, vizuální tvůrkyně<br>a váš partner pro obsah</h2>
+      </div>
+      <figure class="polaroid" aria-hidden="true"><img src="assets/me-2.webp" alt=""></figure>
+      <div class="about-left">
+        <p class="lead-mono">Dlouho jsem hledala způsob, jak ukázat prostor, produkt nebo příběh přesně tak, jak ho vidím. S AI ho konečně mám.</p>
+        <img class="about-photo" src="assets/me-4.webp" alt="Andrea v bílém kostýmu v interiéru" loading="lazy">
+      </div>
+      <div class="about-copy">
+        <p>Vytvářím AI videa, AI fotografie a produktové vizuály pro realitní makléře a značky, které chtějí vypadat jako z magazínu.</p>
+        <p>Prázdný byt proměním v zařízený domov, z jedné produktové fotky udělám celou kampaň a ze staré fotografie krátký film. Spojuji generativní AI s citem pro světlo, kompozici a příběh, takže výsledek nepůsobí „uměle“, ale <i>prémiově</i>.</p>
+        <p>Pracuji s nástroji Midjourney, Nano Banana, Kling AI, Seedance, Runway a CapCut. Každý vizuál ale začíná u vás: u vaší značky, nemovitosti a klienta, kterého chcete oslovit.</p>
+        <a class="btn" href="#poptavka" data-home>Spolupracujme</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">
+    <span>Moje práce</span><span>Moje práce</span><span>Moje práce</span><span>Moje práce</span>
+    <span>Moje práce</span><span>Moje práce</span><span>Moje práce</span><span>Moje práce</span>
+  </div></div>
+
+  <section class="concrete" aria-label="Kategorie">
+    <div class="wrap"><div class="cats" id="cats"></div></div>
+  </section>
+
+  <section class="work" id="portfolio">
+    <div class="wrap">
+      <div class="work-head">
+        <div><span class="script">Vybrané projekty</span><h2>Portfolio</h2></div>
+        <div class="filters" id="filters" role="group" aria-label="Filtr kategorií"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="process" id="spoluprace">
+    <div class="wrap">
+      <h2>Jak spolupracujeme</h2>
+      <ol class="steps">
+        <li><b>Poptávka</b><span>Pošlete mi fotky, odkaz na nemovitost nebo produkt a krátce popište, co potřebujete.</span></li>
+        <li><b>Návrh</b><span>Připravím koncept, styl a formát (reels 9:16, web 16:9, tisk) a cenu na míru.</span></li>
+        <li><b>Tvorba</b><span>Generuji, animuji a stříhám. Ukážu vám první verzi a doladíme ji podle vašich připomínek.</span></li>
+        <li><b>Předání</b><span>Dostanete hotové soubory připravené pro Instagram, realitní portály i web.</span></li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CASE STUDY ================= -->
+<div id="case" class="view case" hidden></div>
+
+<!-- ================= INQUIRY (shared) ================= -->
+<section class="inquiry" id="poptavka">
+  <div class="wrap inq-grid">
+    <div class="inq-intro">
+      <span class="script">Napište mi</span>
+      <h2>Nezávazná<br>poptávka</h2>
+      <p>Vyplňte pár základních údajů a ozvu se vám s návrhem a cenou. Stačí orientačně, detaily doladíme spolu.</p>
+      <ul><li>AI videa a reels</li><li>AI a produktové fotografie</li><li>Reality a home staging</li></ul>
+    </div>
+    <form class="form" id="inq" novalidate>
+      <div class="hp" aria-hidden="true"><label for="f-web">Web</label><input id="f-web" name="web" tabindex="-1" autocomplete="off"></div>
+      <div class="field"><label for="f-name">Jméno a příjmení <span class="req">*</span></label><input id="f-name" name="jmeno" autocomplete="name" required><span class="msg"></span></div>
+      <div class="field"><label for="f-company">Firma / realitní kancelář</label><input id="f-company" name="firma" autocomplete="organization"></div>
+      <div class="field"><label for="f-email">E-mail <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="msg"></span></div>
+      <div class="field"><label for="f-phone">Telefon</label><input id="f-phone" name="telefon" type="tel" autocomplete="tel" placeholder="+420"></div>
+      <fieldset class="field full"><legend>O co máte zájem <span class="req">*</span></legend>
+        <div class="opts" id="f-services">
+          <label><input type="checkbox" name="sluzby" value="AI video"><span>AI video</span></label>
+          <label><input type="checkbox" name="sluzby" value="AI fotografie"><span>AI fotografie</span></label>
+          <label><input type="checkbox" name="sluzby" value="Produktové foto / video"><span>Produktové foto / video</span></label>
+          <label><input type="checkbox" name="sluzby" value="Reality / home staging"><span>Reality / home staging</span></label>
+          <label><input type="checkbox" name="sluzby" value="Oživení fotografií"><span>Oživení fotografií</span></label>
+          <label><input type="checkbox" name="sluzby" value="Jiné"><span>Jiné</span></label>
+        </div><span class="msg"></span></fieldset>
+      <div class="field"><label for="f-deadline">Termín</label>
+        <select id="f-deadline" name="termin"><option value="">Vyberte</option><option>Co nejdříve</option><option>Do 2 týdnů</option><option>Do měsíce</option><option>Termín je flexibilní</option></select></div>
+      <div class="field"><label for="f-budget">Orientační rozpočet</label>
+        <select id="f-budget" name="rozpocet"><option value="">Vyberte</option><option>Do 5 000 Kč</option><option>5 000 – 15 000 Kč</option><option>15 000 – 30 000 Kč</option><option>Nad 30 000 Kč</option><option>Zatím nevím</option></select></div>
+      <div class="field full"><label for="f-msg">Popis projektu <span class="req">*</span></label><textarea id="f-msg" name="zprava" required placeholder="Co potřebujete, pro jaký účel (Instagram, web, realitní portál, tisk) a v jakém stylu."></textarea><span class="msg"></span></div>
+      <div class="field full"><label for="f-link">Odkaz na podklady</label><input id="f-link" name="odkaz" type="url" placeholder="Inzerát, web, Google Drive, WeTransfer…"></div>
+      <label class="consent" for="f-gdpr"><input type="checkbox" id="f-gdpr" name="souhlas" required><span>Souhlasím se zpracováním osobních údajů za účelem vyřízení poptávky. <span class="req">*</span></span></label>
+      <div class="form-foot"><small>* povinné údaje</small><button class="btn" type="submit">Odeslat poptávku</button></div>
+      <div class="done" id="inq-done" hidden></div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= CONTACT (shared) ================= -->
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <span class="script">Máte projekt?</span>
+    <h2>Pojďme <em>spolu</em><br>tvořit</h2>
+    <div class="contact-grid">
+      <dl>
+        <div><dt>E-mail</dt><dd><a href="mailto:aj.fryk@gmail.com">aj.fryk@gmail.com</a></dd></div>
+        <div><dt>Telefon</dt><dd><a href="tel:+420722555554">+420 722 555 554</a></dd></div>
+      </dl>
+      <dl>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/andrea.signature/" target="_blank" rel="noopener">@andrea.signature</a></dd></div>
+        <div><dt>Působím</dt><dd>Praha a celá ČR, online</dd></div>
+      </dl>
+      <div class="qr"><img src="assets/qr.png" alt="QR kód na Instagram @andrea.signature" width="112" height="112"><small>Instagram</small></div>
+    </div>
+    <div class="foot">
+      <img src="assets/logo-light.png" alt="Andrea Signature" width="150" height="59">
+      <span>AI visuals · video · branding</span>
+      <span>© 2026 Andrea Signature</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+const CATS = {
+  "ai-video": {name:"AI videa", text:"Krátké filmy, oživené fotografie a cinematické reels. Příběh, který by se klasicky natáčel týdny, vznikne za pár dní."},
+  "ai-foto":  {name:"AI fotografie", text:"Editorial portréty, kampaně a konceptuální vizuály ve stylu módních magazínů, bez ateliéru a produkce."},
+  "produkt":  {name:"Produktové foto & video", text:"Produkt v prostředí, které mu sluší: od reklamních záběrů a lifestyle scén po brandové filmy."},
+  "reality":  {name:"Reality & home staging", text:"Promo videa nemovitostí, virtuální home staging, proměny před a po a makléř v hlavní roli."}
+};
+
+/* media: {t:'v'|'i', src, poster, ar, cap, w} */
+const P = [
+ {id:"century-21", title:"Century 21", em:"promo", script:"Nemovitost, kterou si zapamatujete",
+  cats:["reality","ai-video"], client:"Makléř Century 21", format:"Video 3:2 · 62 s", tools:"Kling AI · Nano Banana · CapCut",
+  cover:"c21", main:{t:"v",src:"c21",ar:"3/2"}, wide:true,
+  brief:"Prodejní video bytu s terasou pro realitní portály a sociální sítě. Prostor měl působit prémiově, světle a vzdušně, a zároveň ukázat lokalitu.",
+  solution:"Z podkladových fotek jsem vytvořila plynulé kamerové průjezdy interiérem, letecký záběr na lokalitu a dotvořila atmosféru světla. Video doplňuje hudba a branding kanceláře.",
+  output:"Hlavní video 3:2 pro portály a web, střih na výšku pro reels a sada statických snímků z videa.",
+  quote:"Kupující se rozhoduje během prvních vteřin. Proto musí první záběr prodávat.",
+  gallery:[{t:"i",src:"c21-f1",ar:"3/2",w:6},{t:"i",src:"c21-f2",ar:"3/2",w:6},{t:"i",src:"c21",ar:"3/2",w:12,cap:"Lokalita"}]},
+
+ {id:"promeny", title:"Proměny", em:"prostoru", script:"Virtuální home staging",
+  cats:["reality","ai-video"], client:"Realitní makléř", format:"Video 3:2 · 16 s", tools:"Nano Banana · Kling AI",
+  cover:"promeny", main:{t:"v",src:"promeny",ar:"3/2"}, wide:true,
+  brief:"Prázdný byt se na fotkách špatně prodává. Kupující si neumí představit, jak by v něm žil.",
+  solution:"Z fotografie prázdné místnosti jsem vygenerovala zařízený interiér a obě verze propojila plynulým přechodem. Dispozice, okna i výhled zůstávají věrné skutečnosti.",
+  output:"Krátké video před/po pro inzerát a sociální sítě, plus statické vizualizace zařízeného bytu.",
+  quote:"Stejný byt, stejné světlo. Jen najednou vypadá jako domov.",
+  gallery:[{t:"i",src:"promeny-f1",ar:"3/2",w:6,cap:"Před"},{t:"i",src:"promeny-f3",ar:"3/2",w:6,cap:"Po"},{t:"v",src:"switch",ar:"1506/1080",w:12,cap:"Přechod v reálném čase"}]},
+
+ {id:"rekonstrukce", title:"Před a po", em:"rekonstrukci", script:"Půdní vestavba za deset vteřin",
+  cats:["reality","ai-video"], client:"Developer / makléř", format:"Video 9:16 · 2 × 10 s", tools:"Kling AI · Seedance",
+  cover:"workers1", main:{t:"v",src:"workers1",ar:"9/16"},
+  brief:"Ukázat potenciál nedokončeného podkroví ještě před začátkem stavebních prací.",
+  solution:"Timelapse, ve kterém řemeslníci během pár vteřin promění hrubou stavbu v hotový obytný prostor. Trámy, okna a rozměry vycházejí z reálných fotek.",
+  output:"Dvě varianty vertikálního videa pro reels a stories.",
+  quote:"Hrubá stavba neprodává. Hotový domov ano.",
+  gallery:[{t:"v",src:"workers2",ar:"9/16",w:4,cap:"Varianta 2"},{t:"i",src:"workers1-f1",ar:"9/16",w:4,cap:"Před"},{t:"i",src:"workers1-f3",ar:"9/16",w:4,cap:"Po"}]},
+
+ {id:"makler-v-hlavni-roli", title:"Makléřka", em:"v hlavní roli", script:"Osobní značka makléře",
+  cats:["reality","ai-video"], client:"Makléřka", format:"Video 16:9 · 11 s + 9:16", tools:"Nano Banana · Kling AI",
+  cover:"mala", main:{t:"v",src:"mala",ar:"16/9"}, wide:true,
+  brief:"Makléř je tvář nabídky. Cílem bylo spojit prezentaci bytu s osobností makléřky, bez natáčení na místě.",
+  solution:"Makléřku jsem z jejích fotografií přirozeně zasadila do interiéru nabízeného bytu. Video ji provází prostorem až po závěrečný záběr na pohovce.",
+  output:"Horizontální video pro web a portály a vertikální verze pro sociální sítě.",
+  quote:"Lidé nakupují od lidí. I když jde o byt.",
+  gallery:[{t:"i",src:"mala-f1",ar:"16/9",w:6},{t:"i",src:"mala-f3",ar:"16/9",w:6},{t:"v",src:"interier",ar:"9/16",w:4,cap:"Vertikální verze"},{t:"i",src:"interier-f2",ar:"9/16",w:4},{t:"i",src:"interier-f3",ar:"9/16",w:4}]},
+
+ {id:"loft", title:"Loft", em:"s výhledem", script:"Cinematický průlet interiérem",
+  cats:["reality","ai-video"], client:"Realitní makléř", format:"Video 16:9 · 10 s", tools:"Kling AI",
+  cover:"loft", main:{t:"v",src:"loft",ar:"16/9"}, wide:true,
+  brief:"Krátký úvodní záběr, který na první pohled ukáže hlavní přednost bytu: obytný prostor s velkými okny a výhledem.",
+  solution:"Pomalý kamerový pohyb podél prosklené stěny s důrazem na materiály, beton, dřevo a teplé světlo.",
+  output:"Úvodní záběr pro prodejní video a smyčka na web.",
+  quote:"Deset vteřin, jeden pohyb kamery a celý příběh bytu.",
+  gallery:[{t:"i",src:"loft-f1",ar:"16/9",w:4},{t:"i",src:"loft-f2",ar:"16/9",w:4},{t:"i",src:"loft-f3",ar:"16/9",w:4}]},
+
+ {id:"prospekt", title:"Prodejní", em:"prospekt", script:"Vizualizace a půdorysy",
+  cats:["reality","ai-foto"], client:"Developer", format:"Tiskový i online prospekt", tools:"ChatGPT · Nano Banana",
+  cover:"prospekt", coverAr:"3/2", main:{t:"i",src:"prospekt",ar:"3/2"}, wide:true,
+  brief:"Přehledný prospekt rodinného domu: exteriér, dispozice podlaží, základní informace a situace pozemku na jedné straně.",
+  solution:"Vizualizace domu a zahrady, čisté 2D půdorysy s výměrami místností a jednotný grafický styl celého listu.",
+  output:"Prospekt pro tisk a web, samostatné půdorysy bytu i domu.",
+  quote:"Půdorys, kterému rozumí každý kupující.",
+  gallery:[{t:"i",src:"pudorys-dum",ar:"3/2",w:8,cap:"Rodinný dům 5+kk"},{t:"i",src:"pudorys-byt",ar:"4/3",w:4,cap:"Byt"}]},
+
+ {id:"emily", title:"Emily", em:"krátký film", script:"Pohádka natočená bez kamery",
+  cats:["ai-video"], client:"Osobní projekt", format:"Video 2:3 · 85 s", tools:"Midjourney · Kling AI · Seedance · CapCut",
+  cover:"emily", main:{t:"v",src:"emily",ar:"2/3"},
+  brief:"Krátký film o dívce, která projde starými dveřmi do světa snů. Test, kam až se dá s AI dojít v emocích a vyprávění.",
+  solution:"Konzistentní postava napříč všemi scénami, teplá zlatá paleta a kamera, která se pohybuje jako ve skutečném filmu. Hudba a střih drží rytmus příběhu.",
+  output:"Vertikální krátký film pro Instagram a showreel.",
+  quote:"AI není zkratka. Je to nový štětec.",
+  gallery:[{t:"i",src:"emily-f2",ar:"2/3",w:4},{t:"i",src:"emily-f4",ar:"2/3",w:4},{t:"i",src:"emily-f3",ar:"2/3",w:4},{t:"i",src:"emily-f5",ar:"2/3",w:6},{t:"i",src:"emily-f6",ar:"2/3",w:6}]},
+
+ {id:"ozivle-fotografie", title:"Oživlé", em:"fotografie", script:"Rodinné vzpomínky v pohybu",
+  cats:["ai-video"], client:"Soukromá zakázka", format:"Video 1:1 a 9:16 · 5–8 s", tools:"Kling AI · Nano Banana",
+  cover:"rodice", main:{t:"v",src:"rodice",ar:"1/1"},
+  brief:"Rozpohybovat staré rodinné fotografie tak, aby zůstaly věrné originálu. Žádný efekt, jen chvilka, která se znovu nadechne.",
+  solution:"Jemná animace s přirozenými gesty: úsměv, pohled, polibek na tvář, smích dítěte v náručí. Zrno, tóny a charakter původních snímků zůstaly zachované.",
+  output:"Krátká videa ke sdílení s rodinou i jako osobní dárek.",
+  quote:"Některé fotky si zaslouží, aby se znovu nadechly.",
+  gallery:[{t:"v",src:"tata",ar:"9/16",w:4,cap:"Táta a já"},{t:"i",src:"tata-f1",ar:"9/16",w:4},{t:"i",src:"tata-f3",ar:"9/16",w:4},{t:"i",src:"rodice-f1",ar:"1/1",w:6},{t:"i",src:"rodice-f3",ar:"1/1",w:6}]},
+
+ {id:"phric-memories", title:"Phric", em:"memories", script:"Brandový film o vůni vzpomínek",
+  cats:["produkt","ai-video"], client:"Phric.cz", format:"Video 2:3 · 30 s", tools:"Midjourney · Kling AI · CapCut",
+  cover:"memories", main:{t:"v",src:"memories",ar:"2/3"},
+  brief:"Italské bytové vůně prodávají emoci. Značka chtěla film, který vůni spojí se vzpomínkou na dětství.",
+  solution:"Babička otevírá knihu a vůně ji přenese do italské vesnice, do citronového sadu a k malé holčičce. Teplá filmová paleta, jemný přechod mezi časy.",
+  output:"Brandový film pro sociální sítě a e-shop, střihy 15 s pro reklamu.",
+  quote:"Vůně je nejrychlejší cesta do vzpomínek.",
+  gallery:[{t:"i",src:"memories-f1",ar:"2/3",w:4},{t:"i",src:"memories-f2",ar:"2/3",w:4},{t:"i",src:"memories-f3",ar:"2/3",w:4}]},
+
+ {id:"phric-vune-italie", title:"Vůně", em:"Itálie", script:"Produktové foto a video",
+  cats:["produkt","ai-foto"], client:"Phric.cz", format:"Foto 4:5, 1:1 · video 9:16", tools:"Midjourney · Nano Banana · Kling AI",
+  cover:"phric-editorial", main:{t:"v",src:"difuzer",ar:"9/16"},
+  brief:"Sada vizuálů pro difuzéry a parfémy: produkt v prémiovém prostředí, které odkazuje na italský původ.",
+  solution:"Editorial s tváří značky na římské terase, čisté lifestyle aranžmá na mramoru a produktové video s citronem a vodou.",
+  output:"Fotografie pro e-shop a sociální sítě, krátké produktové video.",
+  quote:"Produkt se neprodává na bílém pozadí. Prodává se v příběhu.",
+  gallery:[{t:"i",src:"phric-editorial",ar:"4/5",w:6,cap:"Editorial"},{t:"i",src:"phric-italie",ar:"4/5",w:6,cap:"Lifestyle"}]},
+
+ {id:"la-dolce-vita", title:"La Dolce", em:"Vita", script:"Koncept titulní strany",
+  cats:["produkt","ai-foto"], client:"Volná tvorba", format:"Foto 4:5", tools:"Midjourney · Nano Banana",
+  cover:"dolcevita", main:{t:"i",src:"dolcevita",ar:"4/5"},
+  brief:"Konceptuální obálka letního módního magazínu s doplňkem v hlavní roli.",
+  solution:"Pobřeží Amalfi, slaměná kabelka v písku a typografie magazínu. Produkt je hlavní hrdina a prostředí mu dává příběh.",
+  output:"Obálka pro portfolio a sociální sítě.",
+  quote:"Léto, které se dá prodat na jedné fotce.",
+  gallery:[]},
+
+ {id:"shop-the-look", title:"Shop", em:"the look", script:"Interiér jako katalog",
+  cats:["produkt","ai-foto"], client:"Volná tvorba", format:"Grafika 5:6", tools:"Nano Banana · ChatGPT",
+  cover:"shopthelook", main:{t:"i",src:"shopthelook",ar:"5/6"},
+  brief:"Ukázat, jak může e-shop s nábytkem prodávat celý styl místo jednotlivých kusů.",
+  solution:"Zařízený obývací pokoj s popisky konkrétních produktů (komoda, koberec, konferenční stolek, sedačka) a jejich výřezy pod scénou.",
+  output:"Grafika pro Instagram a newsletter.",
+  quote:"Lidé nekupují stolek. Kupují pocit z celého pokoje.",
+  gallery:[]},
+
+ {id:"domov", title:"Domov", em:"kampaň", script:"Jediná pilulka na radost",
+  cats:["ai-foto"], client:"Volná tvorba", format:"Foto 4:5 a 1:1", tools:"Midjourney · Canva",
+  cover:"pilulka", main:{t:"i",src:"pilulka",ar:"4/5"},
+  brief:"Konceptuální kampaň o domově jako o tom nejlepším, co si člověk může dopřát.",
+  solution:"Dva surreálné vizuály: obývací pokoj ukrytý v kapsli a miniaturní byt pod klávesou Enter. Krátký claim dotahuje pointu.",
+  output:"Série vizuálů pro sociální sítě.",
+  quote:"Stiskni Enter a tvé sny se promění v realitu.",
+  gallery:[{t:"i",src:"enter",ar:"1/1",w:12,cap:"Stiskni Enter"}]},
+
+ {id:"editorial", title:"Editorial", em:"portréty", script:"Módní fotografie bez ateliéru",
+  cats:["ai-foto"], client:"Volná tvorba", format:"Foto 2:3", tools:"Midjourney · Nano Banana",
+  cover:"red", main:{t:"i",src:"red",ar:"2/3"},
+  brief:"Série portrétů, která ukazuje rozsah stylů: od zimního editorialu po černobílou klasiku a pohádkový koncept.",
+  solution:"Každý snímek má vlastní světlo, styling a náladu. Důraz na texturu látek, pleť a filmový charakter.",
+  output:"Portrétní série pro portfolio a sociální sítě.",
+  quote:"Styl je rozhodnutí. AI ho jen vykreslí.",
+  gallery:[{t:"i",src:"bw1",ar:"2/3",w:4},{t:"i",src:"bw2",ar:"2/3",w:4},{t:"i",src:"pink",ar:"3/4",w:4}]}
+];
+
+const $ = s => document.querySelector(s);
+const A = n => `assets/${n}`;
+const imgSrc = n => /-f\d$/.test(n) ? A(n+'.webp') : (/^(c21|promeny|switch|workers1|workers2|mala|interier|loft|emily|rodice|tata|memories|difuzer)$/.test(n) ? A(n+'.jpg') : A(n+'.webp'));
+const isVid = n => /^(c21|promeny|switch|workers1|workers2|mala|interier|loft|emily|rodice|tata|memories|difuzer)$/.test(n);
+const playIcon = '<span class="play" aria-hidden="true"><svg width="12" height="14" viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z" fill="currentColor"/></svg></span>';
+
+/* categories */
+$('#cats').innerHTML = Object.entries(CATS).map(([k,c])=>{
+  const n = P.filter(p=>p.cats.includes(k)).length;
+  return `<button class="cat" data-filter="${k}"><h3>${c.name}</h3><p>${c.text}</p><span class="more"><span>${n} projektů</span><span>Zobrazit →</span></span></button>`;
+}).join('');
+
+/* filters */
+$('#filters').innerHTML = `<button class="chip" data-f="all" aria-pressed="true">Vše</button>` +
+  Object.entries(CATS).map(([k,c])=>`<button class="chip" data-f="${k}" aria-pressed="false">${c.name}</button>`).join('');
+
+/* grid */
+$('#grid').innerHTML = P.map(p=>{
+  const v = isVid(p.cover) || p.main.t==='v' && isVid(p.main.src);
+  const vs = isVid(p.cover) ? p.cover : (p.main.t==='v' ? p.main.src : null);
+  return `<a class="item" href="#${p.id}" data-id="${p.id}" data-cats="${p.cats.join(' ')}">
+    <div class="thumb"><span class="badge">${CATS[p.cats[0]].name}</span>
+      <img src="${imgSrc(p.cover)}" alt="${p.title} ${p.em}" loading="lazy">
+      ${vs?`<video muted loop playsinline preload="none" data-src="${A(vs+'.mp4')}"></video>${playIcon}`:''}
+    </div>
+    <div class="meta"><span>${p.client}</span><span>${p.format.split('·')[0].trim()}</span></div>
+    <h3>${p.title} <em>${p.em}</em></h3></a>`;
+}).join('');
+
+function setFilter(f){
+  document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.f===f));
+  document.querySelectorAll('.item').forEach(it=>{ it.hidden = f!=='all' && !it.dataset.cats.split(' ').includes(f); });
+}
+$('#filters').addEventListener('click',e=>{const b=e.target.closest('.chip'); if(b) setFilter(b.dataset.f);});
+document.addEventListener('click',e=>{
+  const t = e.target.closest('[data-filter]'); if(!t) return;
+  e.preventDefault(); goHome('portfolio'); setFilter(t.dataset.filter); closeMenu();
+});
+
+/* hover video preview */
+const canHover = matchMedia('(hover:hover)').matches;
+document.querySelectorAll('.item').forEach(it=>{
+  const v = it.querySelector('video'); if(!v || !canHover) return;
+  it.addEventListener('mouseenter',()=>{ if(!v.src) v.src=v.dataset.src; v.play().then(()=>it.classList.add('playing')).catch(()=>{}); });
+  it.addEventListener('mouseleave',()=>{ v.pause(); it.classList.remove('playing'); });
+});
+
+/* media renderer */
+function media(m, main){
+  if(m.t==='v') return `<video src="${A(m.src+'.mp4')}" poster="${A(m.src+'.jpg')}" ${main?'controls':'muted loop autoplay'} playsinline preload="${main?'metadata':'none'}" style="--ar:${m.ar}"></video>`;
+  return `<img src="${imgSrc(m.src)}" alt="" loading="lazy" style="--ar:${m.ar}">`;
+}
+
+function renderCase(p){
+  const i = P.indexOf(p), nx = P[(i+1)%P.length];
+  $('#case').innerHTML = `
+  <section class="case-hero"><div class="wrap">
+    <a class="back" href="#portfolio" data-home>← Zpět na portfolio</a>
+    <div class="case-title"><span class="script">${p.script}</span><h1>${p.title} <em>${p.em}</em></h1></div>
+    <dl class="case-meta">
+      <div><dt>Klient</dt><dd>${p.client}</dd></div>
+      <div><dt>Kategorie</dt><dd>${p.cats.map(c=>CATS[c].name).join(', ')}</dd></div>
+      <div><dt>Formát</dt><dd>${p.format}</dd></div>
+      <div><dt>Nástroje</dt><dd>${p.tools}</dd></div>
+    </dl>
+    <div class="case-main ${p.wide?'wide':''}">${media(p.main,true)}</div>
+  </div></section>
+  <section class="case-body"><div class="wrap">
+    <div class="case-cols">
+      <section><h2>Zadání</h2><p>${p.brief}</p></section>
+      <section><h2>Řešení</h2><p>${p.solution}</p></section>
+      <section><h2>Výstup</h2><p>${p.output}</p></section>
+    </div>
+    <div class="case-quote"><p>„${p.quote}“</p></div>
+    ${p.gallery.length?`<div class="gallery">${p.gallery.map(g=>`<figure class="w${g.w||4}">${media(g,false)}${g.cap?`<figcaption>${g.cap}</figcaption>`:''}</figure>`).join('')}</div>`:''}
+  </div></section>
+  <a class="next" href="#${nx.id}"><img src="${imgSrc(nx.cover)}" alt="" loading="lazy"><span class="in"><small>Další projekt</small><strong>${nx.title} <em>${nx.em}</em></strong></span></a>`;
+  // lazy-play gallery videos when visible
+  const io = new IntersectionObserver(es=>es.forEach(en=>{const v=en.target; if(en.isIntersecting){v.preload='auto'; v.play().catch(()=>{});} else v.pause();}),{threshold:.3});
+  $('#case').querySelectorAll('.gallery video').forEach(v=>io.observe(v));
+}
+
+/* routing */
+const home = $('#home'), cs = $('#case');
+function goHome(anchor){
+  cs.querySelectorAll('video').forEach(v=>v.pause());
+  cs.hidden = true; home.hidden = false;
+  if(anchor){ const el=document.getElementById(anchor); if(el) requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth'})); }
+}
+function route(){
+  const id = (location.hash||'').slice(1);
+  const p = P.find(x=>x.id===id);
+  if(p){ renderCase(p); home.hidden = true; cs.hidden = false; window.scrollTo(0,0); }
+  else if(!cs.hidden){ goHome(id||null); }
+}
+window.addEventListener('hashchange',route);
+document.addEventListener('click',e=>{
+  const a = e.target.closest('a[data-home]'); if(!a) return;
+  const id = a.getAttribute('href').slice(1);
+  if(!cs.hidden){ e.preventDefault(); history.pushState(null,'','#'+id); goHome(id); }
+  closeMenu();
+});
+route();
+
+/* inquiry form */
+const FORM_ENDPOINT = ""; // po nasazení na vlastní hosting sem vložte adresu formulářové služby (např. Formspree)
+const OWNER_EMAIL = "aj.fryk@gmail.com";
+const form = $('#inq'), done = $('#inq-done');
+function setErr(el, msg){ const f = el.closest('.field'); f.classList.toggle('err', !!msg); const m=f.querySelector('.msg'); if(m) m.textContent = msg||''; }
+function validate(){
+  let ok = true, first = null;
+  const chk = (el, cond, msg) => { setErr(el, cond ? '' : msg); if(!cond){ ok=false; first = first||el; } };
+  chk($('#f-name'), $('#f-name').value.trim().length>1, 'Vyplňte prosím jméno.');
+  chk($('#f-email'), /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($('#f-email').value.trim()), 'Zadejte e-mail ve tvaru jmeno@domena.cz.');
+  const sv = [...form.querySelectorAll('[name=sluzby]:checked')];
+  chk($('#f-services'), sv.length>0, 'Vyberte alespoň jednu službu.');
+  chk($('#f-msg'), $('#f-msg').value.trim().length>4, 'Napište prosím pár slov o projektu.');
+  const g = $('#f-gdpr'); if(!g.checked){ ok=false; first = first||g; g.parentElement.style.color='#B3261E'; } else g.parentElement.style.color='';
+  if(first) first.focus();
+  return ok;
+}
+function summary(){
+  const v = n => (form.elements[n]?.value||'').trim() || '—';
+  const sv = [...form.querySelectorAll('[name=sluzby]:checked')].map(x=>x.value).join(', ');
+  return `Jméno: ${v('jmeno')}\nFirma: ${v('firma')}\nE-mail: ${v('email')}\nTelefon: ${v('telefon')}\nSlužby: ${sv}\nTermín: ${v('termin')}\nRozpočet: ${v('rozpocet')}\nPodklady: ${v('odkaz')}\n\nPopis projektu:\n${v('zprava')}`;
+}
+form.addEventListener('input', e=>{ const f=e.target.closest('.field'); if(f&&f.classList.contains('err')) setErr(e.target,''); });
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  if(form.elements.web.value) return; // spam
+  if(!validate()) return;
+  const text = summary(), name = form.elements.jmeno.value.trim();
+  let sent = false;
+  if(FORM_ENDPOINT){
+    try{ const r = await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({_subject:'Poptávka z webu: '+name, email:form.elements.email.value.trim(), zprava:text})}); sent = r.ok; }catch(_){ sent=false; }
+  }
+  const mail = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent('Poptávka z webu: '+name)}&body=${encodeURIComponent(text)}`;
+  form.querySelectorAll('.field,.consent,.form-foot').forEach(x=>x.hidden=true);
+  done.hidden = false;
+  done.innerHTML = sent
+    ? `<h3>Děkuji, poptávka je odeslaná</h3><p>Brzy se vám ozvu na e-mail ${form.elements.email.value.trim()}.</p>`
+    : `<h3>Poslední krok</h3><p>Otevřete e-mail s připravenou zprávou a odešlete ji. Pokud se e-mail neotevře, zkopírujte shrnutí a pošlete ho na <b>${OWNER_EMAIL}</b>.</p>
+       <pre id="inq-text"></pre>
+       <div class="row"><a class="btn" href="${mail}">Otevřít e-mail</a><button class="btn ghost" type="button" id="inq-copy">Zkopírovat shrnutí</button><button class="btn ghost" type="button" id="inq-back">Upravit poptávku</button></div>`;
+  const pre = $('#inq-text'); if(pre) pre.textContent = text;
+  $('#inq-copy')?.addEventListener('click', ev=>{
+    const b = ev.currentTarget;
+    navigator.clipboard.writeText(text).then(()=>{ b.textContent='Zkopírováno'; }).catch(()=>{ const r=document.createRange(); r.selectNodeContents(pre); const s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent='Označeno, stiskněte Ctrl+C'; });
+  });
+  $('#inq-back')?.addEventListener('click', ()=>{ done.hidden=true; form.querySelectorAll('.field,.consent,.form-foot').forEach(x=>x.hidden=false); });
+  done.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+/* nav tint + burger */
+const nav = $('#nav'), menu = $('#menu'), burger = $('#burger');
+function tint(){ const h = home.hidden ? 0 : ($('.hero')?.offsetHeight||0) - 76; nav.classList.toggle('on-cream', home.hidden ? window.scrollY > 300 : window.scrollY > h); }
+addEventListener('scroll',tint,{passive:true}); tint();
+function closeMenu(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+burger.addEventListener('click',()=>{ const o=menu.classList.toggle('open'); burger.setAttribute('aria-expanded',o); });
+</script>
+</body></html>
