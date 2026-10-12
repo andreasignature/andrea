@@ -1,0 +1,827 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Andrea Signature</title>
+<meta name="description" content="Andrea Signature — AI videos, AI photography, product visuals and real estate videos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@300;400;600&display=swap">
+<style>
+/* Layout: vzdušný editorial — číslované sekce, asymetrický úvod ANDREA SIGNATURE, běžící nápis,
+   dlaždice kategorií přes celou šířku, pás výroků, vybrané projekty, portfolio, spolupráce, poptávka, kontakt.
+   Barvy loga: bílá, černá, červená jen v číslech sekcí a drobných detailech. Jediný světlý vzhled. */
+:root{
+  color-scheme: light;
+  --wine:#151515; --wine-deep:#000; --card:#E3DFD8; --ink:#151515; --cream:#FCFBF8; --paper:#FFFFFF;
+  --blush:#ECE9E4; --blush-2:#E3DFD8; --concrete:#151515; --line:rgba(21,21,21,.16);
+  --sand:#E3DFD8; --mute:#66625E; --red:#A41A1A;
+  --f-display:"Cormorant Garamond","Garamond",Georgia,serif;
+  --f-mono:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --f-script:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(16px,5vw,72px);
+  --max:1240px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--f-mono);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;color:var(--wine);margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+
+
+body{font-weight:300;font-size:13px;line-height:1.7}
+h1,h2,h3{letter-spacing:-.01em}
+.num{font-family:var(--f-mono);font-size:10px;font-weight:600;color:var(--red);vertical-align:top;margin-right:12px;letter-spacing:.06em;font-style:normal}
+.script{font-family:var(--f-mono);font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);display:block;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:10px 26px;font-family:var(--f-mono);font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap;transition:border-color .2s,color .2s,background .2s}
+.btn:hover{border-color:var(--red);color:var(--red)}
+.btn.solid{background:var(--ink);color:var(--cream)}
+.btn.solid:hover{background:var(--red);border-color:var(--red);color:#fff}
+.btn.sm{padding:8px 20px}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(252,251,248,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px;max-width:none}
+.brand{display:inline-flex;text-decoration:none;flex-shrink:0}
+.brand img{height:50px;width:auto;display:block}
+.menu{display:flex;gap:clamp(14px,2.4vw,34px);list-style:none;margin:0;padding:0;align-items:center}
+.menu a{font-family:var(--f-mono);font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.menu a:hover{color:var(--red)}
+.burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
+
+/* ---------- MEET (úvod) ---------- */
+.meet{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,3.4fr) minmax(0,2.4fr);grid-template-rows:auto auto 1fr;gap:0 clamp(16px,2.4vw,30px);padding-block:clamp(20px,3vw,40px) clamp(40px,5vw,70px)}
+.meet h1{grid-column:2/4;grid-row:1;font-size:clamp(40px,5vw,72px);line-height:.95;text-transform:uppercase;padding:0 0 clamp(20px,3vw,34px) clamp(20px,6vw,90px);color:var(--ink)}
+.meet .tall{grid-column:2;grid-row:2/4;width:100%;height:auto;aspect-ratio:5/6;object-fit:cover;object-position:center top;filter:grayscale(1) contrast(1.04)}
+.meet .small{grid-column:3;grid-row:2;width:100%;height:auto;aspect-ratio:1/1.3;object-fit:cover}
+.meet-text{grid-column:1;grid-row:3;align-self:end;display:grid;gap:16px;padding-bottom:12px;max-width:32ch;justify-items:start}
+.meet-text h2{font-size:clamp(19px,1.7vw,23px);line-height:1.1;text-transform:uppercase;color:var(--ink);letter-spacing:0}
+.meet-text p{font-size:12px;color:var(--mute)}
+
+/* ---------- MARQUEE ---------- */
+.marquee{overflow:hidden;white-space:nowrap;padding-top:6px}
+.marquee-track{display:inline-flex;animation:mq 36s linear infinite}
+.marquee-track span,.marquee-track i{font-family:var(--f-display);font-weight:300;font-size:clamp(50px,7.4vw,108px);line-height:1;text-transform:uppercase;letter-spacing:-.02em;padding-right:.3em;font-style:normal}
+.marquee-track i{color:var(--red)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- TILES (kategorie) ---------- */
+.cats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.cat{position:relative;aspect-ratio:3/4.3;display:grid;place-items:center;border:0;padding:0;cursor:pointer;overflow:hidden;background:var(--blush);font:inherit}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.cat::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(10,10,10,.28);transition:background .4s}
+.cat:hover img{transform:scale(1.05)}
+.cat:hover::before{background:rgba(10,10,10,.42)}
+.cat .lbl{position:relative;z-index:2;display:grid;gap:12px;justify-items:center;color:#fff;font-family:var(--f-mono);font-size:9.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;padding:0 12px}
+.cat .lbl::after{content:"";width:60px;height:1px;background:rgba(255,255,255,.85);transition:background .3s,width .3s}
+.cat:hover .lbl::after{background:var(--red);width:80px}
+.cat .lbl small{font-size:8.5px;letter-spacing:.2em;opacity:.8;font-weight:400;order:3}
+
+/* ---------- QUOTES ---------- */
+.band{background:var(--sand);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:clamp(48px,6vw,84px) var(--gut)}
+.band button{background:none;border:0;cursor:pointer;color:var(--ink);padding:10px}
+.band button:hover{color:var(--red)}
+.band figure{margin:0;text-align:center;display:grid;gap:18px;justify-items:center}
+.band blockquote{margin:0;font-family:var(--f-display);font-size:clamp(19px,2vw,26px);line-height:1.2;text-transform:uppercase;max-width:34ch;min-height:3.6em;transition:opacity .3s}
+.band figcaption{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+
+/* ---------- FEATURED ---------- */
+.featured{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,3fr) minmax(0,3fr);gap:clamp(16px,2.4vw,30px);padding-block:clamp(56px,7vw,100px);align-items:start}
+.feat-head{display:grid;gap:20px;justify-items:start}
+.feat-head h2{font-size:clamp(36px,4.2vw,60px);line-height:.95;text-transform:uppercase;color:var(--ink)}
+.feat-tall{display:block;margin-top:clamp(40px,6vw,90px);position:relative;overflow:hidden}
+.feat-tall img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.feat-tall:hover img{transform:scale(1.03)}
+.feat-side{display:grid;gap:14px;margin-top:clamp(70px,9vw,130px)}
+.feat-side img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.feat-side small{font-size:11px;color:var(--mute)}
+.feat-side ol{list-style:none;margin:0;padding:0}
+.feat-side li a{display:grid;grid-template-columns:48px 1fr auto;align-items:baseline;border-top:1px solid var(--line);padding-block:10px;text-decoration:none}
+.feat-side li:last-child a{border-bottom:1px solid var(--line)}
+.feat-side li b{font-family:var(--f-display);font-weight:400;font-size:20px;color:var(--mute)}
+.feat-side li span{font-family:var(--f-display);font-size:17px;text-transform:uppercase}
+.feat-side li i{font-style:normal;font-size:12px;transition:transform .25s,color .25s}
+.feat-side li a:hover i{transform:translateX(4px);color:var(--red)}
+/* ---------- PORTFOLIO ---------- */
+.work{padding-block:clamp(64px,8vw,120px)}
+.work-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:20px 40px;margin-bottom:clamp(28px,4vw,48px)}
+.work-head h2{font-size:clamp(40px,6vw,88px);line-height:.9;text-transform:uppercase}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px;border:1px solid var(--wine);background:transparent;color:var(--wine);cursor:pointer;transition:all .2s}
+.chip[aria-pressed="true"],.chip:hover{background:var(--wine);color:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,32px) clamp(14px,1.8vw,24px)}
+.item{display:grid;gap:12px;text-decoration:none;cursor:pointer;background:none;border:0;padding:0;text-align:left;font:inherit;color:inherit}
+.thumb{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--blush)}
+.thumb img,.thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.thumb video{opacity:0}
+.item:hover .thumb img{transform:scale(1.04)}
+.item.playing .thumb video{opacity:1}
+.badge{position:absolute;left:12px;top:12px;z-index:2;background:var(--cream);color:var(--wine);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.play{position:absolute;right:12px;bottom:12px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(251,249,238,.92);display:grid;place-items:center;color:var(--wine)}
+.item .meta{display:flex;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);opacity:.8}
+.item h3{font-size:clamp(22px,2vw,28px);line-height:1;text-transform:uppercase}
+.item[hidden]{display:none}
+
+/* ---------- PROCESS ---------- */
+.process{background:var(--paper);border-block:1px solid var(--line);padding-block:clamp(56px,7vw,100px)}
+.process h2{font-size:clamp(32px,4vw,58px);text-transform:uppercase;line-height:1;margin-bottom:clamp(28px,4vw,48px);text-align:center}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,28px);list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;gap:10px;align-content:start;border-top:1px solid var(--wine);padding-top:16px;font-size:13px}
+.steps li::before{content:"0" counter(s);font-family:var(--f-display);font-size:40px;color:var(--wine);line-height:1}
+.steps b{font-family:var(--f-display);font-weight:400;font-size:22px;text-transform:uppercase;color:var(--wine);line-height:1}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--wine);color:var(--cream);padding-block:clamp(64px,8vw,120px) 40px;overflow:hidden}
+.contact h2{color:var(--cream);font-size:clamp(56px,11vw,170px);line-height:.85;text-transform:uppercase}
+.contact h2 em{font-style:italic;text-transform:none}
+.contact .script{color:var(--cream);opacity:.9}
+.contact-grid{display:grid;grid-template-columns:1.3fr 1fr auto;gap:clamp(24px,4vw,56px);align-items:end;margin-top:clamp(32px,5vw,64px);padding-top:28px;border-top:1px solid rgba(251,249,238,.3)}
+.contact dl{display:grid;gap:14px;margin:0}
+.contact dt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.contact dd{margin:0;font-family:var(--f-display);font-size:clamp(22px,2.2vw,32px);line-height:1.1;user-select:all;overflow-wrap:anywhere}
+.contact dd a{text-decoration:none}
+.contact dd a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.qr{background:var(--cream);padding:10px;width:132px}
+.qr img{width:100%;image-rendering:pixelated}
+.qr small{display:block;color:var(--wine);font-size:9px;letter-spacing:.1em;text-transform:uppercase;text-align:center;margin-top:6px}
+.contact .btn{background:var(--cream);color:var(--wine)}
+.contact .btn:hover{background:#fff}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:clamp(48px,6vw,80px);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.foot img{width:150px;height:auto}
+
+/* ---------- INQUIRY FORM ---------- */
+.inquiry{background:var(--cream);padding-block:clamp(64px,8vw,120px);border-top:1px solid var(--line)}
+.inq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.inq-intro{display:grid;gap:18px;position:sticky;top:110px}
+.inq-intro h2{font-size:clamp(40px,5.4vw,80px);line-height:.9;text-transform:uppercase}
+.inq-intro p{font-size:13px;max-width:40ch}
+.inq-intro ul{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--wine)}
+.inq-intro li::before{content:"— "}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 28px;background:var(--paper);padding:clamp(24px,3.5vw,48px);box-shadow:0 24px 60px rgba(58,27,23,.08)}
+.field{display:grid;gap:8px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label,.field legend{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);padding:0}
+.field label .req,.field legend .req{opacity:.6}
+.field input,.field select,.field textarea{font:inherit;font-size:14px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(58,27,23,.35);border-radius:0;padding:8px 0;width:100%;outline:none;transition:border-color .2s}
+.field textarea{min-height:120px;resize:vertical;border:1px solid rgba(58,27,23,.25);padding:12px}
+.field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--wine) 50%),linear-gradient(135deg,var(--wine) 50%,transparent 50%);background-position:calc(100% - 10px) 55%,calc(100% - 5px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:24px;cursor:pointer}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--wine)}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none;box-shadow:0 2px 0 var(--wine)}
+.field.err input,.field.err textarea,.field.err select{border-color:#B3261E}
+.field .msg{font-size:11px;color:#B3261E;min-height:0}
+fieldset.field{border:0;margin:0;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative;cursor:pointer;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--wine)}
+.opts input{position:absolute;opacity:0;width:1px;height:1px}
+.opts span{display:inline-block;padding:9px 14px;border:1px solid var(--wine);border-radius:999px;transition:all .2s}
+.opts input:checked + span{background:var(--wine);color:var(--cream)}
+.opts input:focus-visible + span{outline:2px solid var(--wine);outline-offset:2px}
+.consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.45}
+.consent input{accent-color:var(--wine);width:16px;height:16px;margin-top:2px;flex-shrink:0}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.form-foot small{font-size:11px;opacity:.7}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.done{grid-column:1/-1;display:grid;gap:14px;background:var(--cream);border:1px solid var(--line);padding:24px}
+.done h3{font-size:30px;text-transform:uppercase;line-height:1}
+.done pre{font-family:var(--f-mono);font-size:12px;white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);padding:14px;margin:0;max-height:260px;overflow:auto;user-select:all}
+.done .row{display:flex;flex-wrap:wrap;gap:10px}
+.btn.ghost{background:transparent;color:var(--wine);border:1px solid var(--wine)}
+.btn.ghost:hover{background:var(--wine);color:var(--cream)}
+@media (max-width:900px){.inq-grid{grid-template-columns:1fr}.inq-intro{position:static}}
+@media (max-width:560px){.form{grid-template-columns:1fr}}
+
+/* ---------- CASE STUDY VIEW ---------- */
+.case{background:var(--cream)}
+.case-hero{background:radial-gradient(120% 90% at 50% 20%,#EAE1DC 0%,var(--blush) 60%,var(--blush-2) 100%);padding-block:clamp(36px,5vw,64px) 0;overflow:hidden}
+.back{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);text-decoration:none;background:none;border:0;cursor:pointer;padding:0;font-family:var(--f-mono)}
+.back:hover{text-decoration:underline;text-underline-offset:4px}
+.case-title{margin-top:clamp(24px,3vw,40px);text-align:center}
+.case-title .script{margin-bottom:.12em}
+.case-title h1{text-transform:uppercase;font-size:clamp(48px,9vw,150px);line-height:.86;letter-spacing:-.02em}
+.case-title h1 em{font-style:italic;text-transform:none}
+.case-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(28px,4vw,48px);padding-block:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case-meta div{display:grid;gap:4px;min-width:0}
+.case-meta dt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);opacity:.75}
+.case-meta dd{margin:0;font-family:var(--f-display);font-size:clamp(17px,1.5vw,21px);color:var(--ink);line-height:1.15}
+.case-main{margin-top:clamp(28px,4vw,48px);display:flex;justify-content:center}
+.case-main video,.case-main img{max-height:min(82vh,860px);width:auto;max-width:100%;background:#1a1110;box-shadow:0 30px 60px rgba(58,27,23,.18)}
+.case-main.wide video,.case-main.wide img{width:100%;max-height:none;height:auto}
+.case-body{padding-block:clamp(56px,7vw,100px)}
+.case-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.case-cols section{display:grid;gap:14px;align-content:start}
+.case-cols h2{font-size:clamp(24px,2.4vw,34px);text-transform:uppercase;line-height:1}
+.case-cols p{font-size:13px;max-width:44ch}
+.case-quote{margin-block:clamp(48px,6vw,88px);text-align:center}
+.case-quote p{font-family:var(--f-display);font-style:italic;color:var(--wine);font-size:clamp(28px,3.6vw,52px);line-height:1.08;max-width:22ch;margin-inline:auto;text-wrap:balance}
+.gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(10px,1.4vw,18px)}
+.gallery figure{margin:0;grid-column:span 4;background:var(--blush);overflow:hidden;position:relative}
+.gallery figure.w6{grid-column:span 6}
+.gallery figure.w8{grid-column:span 8}
+.gallery figure.w12{grid-column:span 12}
+.gallery img,.gallery video{width:100%;height:100%;object-fit:cover;aspect-ratio:var(--ar,4/5)}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;background:var(--cream);color:var(--wine);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.next{display:block;position:relative;background:var(--concrete);color:var(--cream);text-decoration:none;overflow:hidden;cursor:pointer;border:0;width:100%;text-align:center;padding:0;font:inherit}
+.next img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45;transition:opacity .5s,transform 1.2s}
+.next:hover img{opacity:.6;transform:scale(1.03)}
+.next .in{position:relative;padding-block:clamp(64px,9vw,140px);display:grid;gap:10px;justify-items:center}
+.next small{font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.next strong{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,7vw,110px);line-height:.9;text-transform:uppercase}
+
+/* ---------- views ---------- */
+.view{animation:fade .5s ease both}
+@keyframes fade{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .menu li.opt{display:none}
+}
+@media (max-width:900px){
+  .menu{display:none}
+  .burger{display:inline-flex}
+  .nav .btn{display:none}
+  .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:4px;padding:16px var(--gut) 24px;background:var(--cream);border-bottom:1px solid var(--line)}
+  .menu.open li.opt{display:block}
+  .menu.open a{font-size:18px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case-cols{grid-template-columns:1fr}
+  .case-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .contact-grid .qr{grid-column:1}
+}
+@media (max-width:700px){
+  .hero-in{min-height:0;display:flex;flex-direction:column;align-items:center;padding-bottom:0}
+  .hero h1{font-size:clamp(44px,14.5vw,96px);white-space:normal;padding-top:28px}
+  .hero-figure{position:relative;left:auto;transform:none;width:min(92%,440px);margin-top:4px}
+  .tag{position:relative;inset:auto !important;text-align:center;font-size:13px}
+  .tag svg{display:none}
+  .hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:18px}
+  .hero .cta{display:none}
+  .hero-in{gap:0}
+  .about-grid{grid-template-columns:1fr}
+  .about-head .script{margin-left:0}
+  .polaroid{position:relative;top:0;justify-self:end;margin-top:-8px}
+  .about-head{display:grid}
+  .cats{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .gallery figure,.gallery figure.w6,.gallery figure.w8{grid-column:span 12}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (min-width:701px){.hero-tags{display:contents}}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+
+/* ---------- editorial overrides ---------- */
+.work-head h2,.process h2,.inq-intro h2,.case-title h1,.case-cols h2,.item h3,.done h3{color:var(--ink);font-weight:400}
+.contact h2{font-weight:400}
+.next strong{color:#fff;font-weight:400}
+.work{border-top:1px solid var(--line)}
+.work-head h2{font-size:clamp(40px,5vw,72px)}
+.chip{border-radius:999px;border-color:var(--line);color:var(--ink);font-family:var(--f-mono);font-weight:600;letter-spacing:.18em;font-size:9px}
+.chip[aria-pressed="true"],.chip:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.badge{background:var(--paper);color:var(--ink);font-weight:600;letter-spacing:.18em;font-size:8.5px}
+.play{background:var(--paper);color:var(--ink)}
+.item .meta{color:var(--mute);opacity:1;font-weight:600;font-size:9px}
+.item h3{font-size:clamp(20px,1.8vw,26px)}
+.item h3 em{font-style:italic;text-transform:none}
+.process{background:var(--paper);border-color:var(--line)}
+.process h2{font-size:clamp(34px,4vw,56px)}
+.steps li{border-top-color:var(--ink);font-size:12.5px}
+.steps li::before{color:var(--red);font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.06em}
+.steps b{color:var(--ink);font-size:22px}
+.inquiry{border-top-color:var(--line)}
+.inq-intro h2{font-size:clamp(38px,4.8vw,68px)}
+.inq-intro ul{color:var(--ink);font-weight:600;font-size:10px}
+.inq-intro li::before{color:var(--red)}
+.form{box-shadow:none;border:1px solid var(--line)}
+.field label,.field legend,.opts label{color:var(--ink);font-weight:600}
+.opts span{border-color:var(--line)}
+.opts input:checked + span{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.consent input{accent-color:var(--ink)}
+.form .btn[type=submit]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.form .btn[type=submit]:hover{background:var(--red);border-color:var(--red);color:#fff}
+.contact{background:var(--sand);color:var(--ink)}
+.contact h2{font-size:clamp(44px,7vw,108px);text-transform:uppercase;color:var(--ink)}
+.contact h2 em{text-transform:none;color:var(--red)}
+.contact .script{color:var(--mute)}
+.contact-grid{border-top-color:var(--line)}
+.contact dt{opacity:1;color:var(--mute);font-weight:600}
+.contact dd{font-size:clamp(22px,2.2vw,30px)}
+.contact .btn{background:transparent;color:var(--ink)}
+.qr{background:var(--paper)}
+.qr small{color:var(--ink)}
+.foot{opacity:1;font-weight:600;font-size:9px;letter-spacing:.2em}
+.foot img{width:140px}
+.case-hero{background:var(--cream)}
+.case-title h1{font-size:clamp(46px,8vw,130px)}
+.case-title h1 em{text-transform:none}
+.case-title .script{margin-bottom:.8em}
+.case-meta{border-color:var(--line)}
+.case-meta dt{color:var(--mute);opacity:1;font-weight:600}
+.case-meta dd{font-size:clamp(18px,1.6vw,22px)}
+.case-cols h2{font-size:clamp(26px,2.6vw,36px)}
+.case-cols p{font-size:13px}
+.case-quote p{color:var(--ink);font-weight:300}
+.back{color:var(--ink);font-weight:600}
+.back:hover{color:var(--red)}
+.gallery figcaption{color:var(--ink);background:var(--paper);font-weight:600}
+.next{background:var(--ink)}
+.next small{font-weight:600}
+.done{background:var(--cream)}
+
+/* ---------- responsive (new parts) ---------- */
+@media (max-width:900px){
+  .menu{display:none}
+  .burger{display:inline-flex}
+  .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:8px;padding:16px var(--gut) 24px;background:var(--cream);border-bottom:1px solid var(--line)}
+  .menu.open a{font-size:12px}
+  .meet{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .meet h1{grid-column:1/-1;padding-left:0}
+  .meet .tall{grid-column:1;grid-row:2;height:auto}
+  .meet .small{grid-column:2;grid-row:2;align-self:start}
+  .meet-text{grid-column:1/-1;grid-row:3;padding-top:24px;max-width:none}
+  .cats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat:last-child{grid-column:1/-1;aspect-ratio:16/8}
+  .featured{grid-template-columns:1fr}
+  .feat-tall,.feat-side{margin-top:0}
+}
+@media (max-width:520px){
+  .cats{grid-template-columns:1fr}
+  .cat{aspect-ratio:16/11}
+  .band{grid-template-columns:1fr;justify-items:center}
+  .band button{display:none}
+  .brand img{height:42px}
+}
+
+.wm{display:inline-block;font-family:var(--f-display);font-weight:400;font-size:clamp(22px,2.3vw,34px);letter-spacing:.03em;text-transform:uppercase;color:var(--ink);line-height:1;white-space:nowrap}
+.wm span{color:var(--red);margin-left:.28em}
+.meet{padding-top:clamp(28px,4vw,56px)}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:520px){.wm{font-size:20px}}
+
+.lang{display:flex;gap:6px;align-items:center}
+.lang a{color:var(--mute)}
+.lang a.on{color:var(--red)}
+.lang i{font-style:normal;color:var(--line)}
+</style>
+</head><body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand wm" href="#top" data-home aria-label="Andrea Signature, home">Andrea <span>Signature</span></a>
+    <ul class="menu" id="menu">
+      <li><a href="#o-mne" data-home>About</a></li>
+      <li><a href="#portfolio" data-home>Portfolio</a></li>
+      <li><a href="#spoluprace" data-home>Process</a></li>
+      <li><a href="#poptavka" data-home>Inquiry</a></li>
+      <li><a href="#kontakt" data-home>Contact</a></li>
+      <li class="lang"><a href="index.html" lang="cs">CZ</a><i>/</i><a href="en.html" lang="en" class="on" aria-current="true">EN</a></li>
+      <li><a class="ig" href="https://www.instagram.com/andrea.signature/" target="_blank" rel="noopener" aria-label="Instagram @andrea.signature"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 1h22M0 6h22M0 11h22"/></svg></button>
+  </div>
+</header>
+
+<main id="app">
+<!-- ================= HOME ================= -->
+<div id="home" class="view">
+  <section class="wrap meet" id="top">
+    <h1 class="sr-only">Andrea Signature</h1>
+    <img class="tall" src="assets/me-1.webp" alt="Andrea, AI creator" width="893" height="1600">
+    <img class="small" src="assets/phric-italie.webp" alt="Phric product photography" width="1024" height="1024">
+    <div class="meet-text" id="o-mne">
+      <h2>AI creator / visual artist</h2>
+      <p>I'm Andrea. I create AI videos, AI photography and product visuals for real estate agents and brands. I turn an empty apartment into a furnished home, a single product photo into a campaign and an old photograph into a short film.</p>
+      <p>I combine generative AI with a feel for light, composition and storytelling. I work with Midjourney, Nano Banana, Kling AI, Seedance, Runway and CapCut.</p>
+      <a class="btn" href="#portfolio" data-home>My work <svg width="16" height="8" viewBox="0 0 16 8" fill="none" stroke="currentColor"><path d="M0 4h15M11 1l4 3-4 3"/></svg></a>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">
+    <span>Let's create together</span><i>\</i><span>Let's create together</span><i>\</i><span>Let's create together</span><i>\</i>
+    <span>Let's create together</span><i>\</i><span>Let's create together</span><i>\</i><span>Let's create together</span><i>\</i>
+  </div></div>
+
+  <section class="cats" id="sluzby" aria-label="Categories"><div class="cats" id="cats" style="display:contents"></div></section>
+
+  <section class="band" aria-label="Quotes">
+    <button type="button" id="q-prev" aria-label="Previous"><svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M18 5H1M5 1L1 5l4 4"/></svg></button>
+    <figure><blockquote id="q-text">“AI is not a shortcut. It is a new brush. But the result always starts with your story.”</blockquote><figcaption>Andrea J. Fryk</figcaption></figure>
+    <button type="button" id="q-next" aria-label="Next"><svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
+  </section>
+
+  <section class="work" id="portfolio">
+    <div class="wrap">
+      <div class="work-head">
+        <div><h2><span class="num">02</span>Portfolio</h2></div>
+        <div class="filters" id="filters" role="group" aria-label="Category filter"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="process" id="spoluprace">
+    <div class="wrap">
+      <h2><span class="num">03</span>How we work together</h2>
+      <ol class="steps">
+        <li><b>Inquiry</b><span>Send me photos, a link to the property or product and a short description of what you need.</span></li>
+        <li><b>Proposal</b><span>I prepare a concept, style and format (reels 9:16, web 16:9, print) and a tailored price.</span></li>
+        <li><b>Creation</b><span>I generate, animate and edit. I show you a first version and we refine it based on your feedback.</span></li>
+        <li><b>Delivery</b><span>You receive finished files ready for Instagram, property portals and the web.</span></li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CASE STUDY ================= -->
+<div id="case" class="view case" hidden></div>
+
+<!-- ================= INQUIRY (shared) ================= -->
+<section class="inquiry" id="poptavka">
+  <div class="wrap inq-grid">
+    <div class="inq-intro">
+      <h2><span class="num">04</span>Free<br>inquiry</h2>
+      <p>Fill in a few basic details and I'll get back to you with a proposal and a price. A rough idea is enough, we'll fine-tune the details together.</p>
+      <ul><li>Product photo & video</li><li>Real estate & home staging</li><li>Websites</li></ul>
+    </div>
+    <form class="form" id="inq" novalidate>
+      <div class="hp" aria-hidden="true"><label for="f-web">Web</label><input id="f-web" name="web" tabindex="-1" autocomplete="off"></div>
+      <div class="field"><label for="f-name">Full name <span class="req">*</span></label><input id="f-name" name="jmeno" autocomplete="name" required><span class="msg"></span></div>
+      <div class="field"><label for="f-company">Company</label><input id="f-company" name="firma" autocomplete="organization"></div>
+      <div class="field"><label for="f-email">E-mail <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="msg"></span></div>
+      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="telefon" type="tel" autocomplete="tel" placeholder="+420"></div>
+      <fieldset class="field full"><legend>What are you interested in <span class="req">*</span></legend>
+        <div class="opts" id="f-services">
+          <label><input type="checkbox" name="sluzby" value="Product photo / video"><span>Product photo / video</span></label>
+          <label><input type="checkbox" name="sluzby" value="Real estate / home staging"><span>Real estate / home staging</span></label>
+          <label><input type="checkbox" name="sluzby" value="Website"><span>Website</span></label>
+          <label><input type="checkbox" name="sluzby" value="Other"><span>Other</span></label>
+        </div><span class="msg"></span></fieldset>
+      <div class="field"><label for="f-deadline">Timeline</label>
+        <select id="f-deadline" name="termin"><option value="">Select</option><option>As soon as possible</option><option>Within 2 weeks</option><option>Within a month</option><option>Flexible</option></select></div>
+      <div class="field"><label for="f-budget">Approximate budget</label>
+        <select id="f-budget" name="rozpocet"><option value="">Select</option><option>Up to €200</option><option>€200 – €600</option><option>€600 – €1,200</option><option>Over €1,200</option><option>Not sure yet</option></select></div>
+      <div class="field full"><label for="f-msg">Project description <span class="req">*</span></label><textarea id="f-msg" name="zprava" required placeholder="What you need, for what purpose (Instagram, website, property portal, print) and in what style."></textarea><span class="msg"></span></div>
+      <div class="field full"><label for="f-link">Link to materials</label><input id="f-link" name="odkaz" type="url" placeholder="Listing, website, Google Drive, WeTransfer…"></div>
+      <label class="consent" for="f-gdpr"><input type="checkbox" id="f-gdpr" name="souhlas" required><span>I agree to the processing of my personal data for the purpose of handling this inquiry. <span class="req">*</span></span></label>
+      <div class="form-foot"><small>* required</small><button class="btn" type="submit">Send inquiry</button></div>
+      <div class="done" id="inq-done" hidden></div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= CONTACT (shared) ================= -->
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <h2><span class="num">05</span>Let's create<br><em>together</em></h2>
+    <div class="contact-grid">
+      <dl>
+        <div><dt>E-mail</dt><dd><a href="mailto:aj.fryk@gmail.com">aj.fryk@gmail.com</a></dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+420722555554">+420 722 555 554</a></dd></div>
+      </dl>
+      <dl>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/andrea.signature/" target="_blank" rel="noopener">@andrea.signature</a></dd></div>
+        <div><dt>Based in</dt><dd>Prague, Czech Republic &amp; online</dd></div>
+      </dl>
+      <div class="qr"><img src="assets/qr.png" alt="QR code for Instagram @andrea.signature" width="112" height="112"><small>Instagram</small></div>
+    </div>
+    <div class="foot">
+      <img src="assets/logo.png" alt="Andrea Signature" width="150" height="59">
+      <span>AI visuals · video · branding</span>
+      <span>© 2026 Andrea Signature</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+const CATS = {
+  "reality":  {name:"Real estate & home staging", text:"Property promo videos, virtual home staging, before & after transformations and sales brochures."},
+  "ai-video": {name:"AI videos", text:"Short films, animated photographs and viral videos for social media."},
+  "kampane":  {name:"Campaigns & products", text:"Products in a setting that suits them: campaigns, product photography and brand films."},
+  "modely":   {name:"Models & editorial", text:"Editorial portraits and fashion series in magazine style, without a studio or production crew."},
+  "covery":   {name:"Covers", text:"Conceptual magazine covers with a product or model in the lead role."}
+};
+
+/* media: {t:'v'|'i', src, ar, cap, w} */
+const P = [
+ {id:"rk-promo", title:"Real estate", em:"promo", script:"A property you will remember",
+  cats:["reality","ai-video"], client:"Real estate agent", format:"Video 3:2 · 58 s", tools:"Kling AI · Nano Banana · CapCut",
+  cover:"c21", main:{t:"v",src:"c21",ar:"3/2"}, wide:true,
+  brief:"A sales video of an apartment with a terrace for property portals and social media. The space had to feel premium, bright and airy, and show the neighbourhood as well.",
+  solution:"From the source photos I created smooth camera moves through the interior and an aerial shot of the area, and refined the atmosphere of the light. Music and the agency's branding complete the video.",
+  output:"Main 3:2 video for portals and the web, a vertical cut for reels and a set of stills from the video.",
+  quote:"Buyers decide within the first few seconds. That is why the first shot has to sell.",
+  gallery:[{t:"i",src:"c21-f1",ar:"3/2",w:6},{t:"i",src:"c21-f2",ar:"3/2",w:6},{t:"i",src:"c21",ar:"3/2",w:12,cap:"Location"}]},
+
+ {id:"home-staging", title:"Home", em:"staging", script:"An interior people want to live in",
+  cats:["reality","ai-video"], client:"Real estate agent", format:"Video 16:9 & 9:16 · photo 3:2", tools:"Nano Banana · Kling AI",
+  cover:"rk-loft", coverAr:"3/2", main:{t:"v",src:"loft",ar:"16/9"}, wide:true,
+  brief:"Show a living space so that buyers can picture life in it: the materials, the light and the view.",
+  solution:"A virtually furnished interior and slow cinematic camera moves. The layout, windows and view stay true to reality.",
+  output:"Horizontal video for the web and portals, a vertical version for social media and a still visualisation.",
+  quote:"An empty apartment doesn't sell. A home that buyers can imagine does.",
+  gallery:[{t:"i",src:"rk-loft",ar:"3/2",w:12,cap:"Visualisation"},{t:"v",src:"interier",ar:"9/16",w:4,cap:"Vertical version"},{t:"i",src:"interier-f2",ar:"9/16",w:4},{t:"i",src:"interier-f3",ar:"9/16",w:4}]},
+
+ {id:"rekonstrukce", title:"Before & after", em:"renovation", script:"An attic conversion in ten seconds",
+  cats:["reality","ai-video"], client:"Developer / agent", format:"Video 9:16 · 10 s", tools:"Kling AI · Seedance",
+  cover:"workers1", main:{t:"v",src:"workers1",ar:"9/16"},
+  brief:"Show the potential of an unfinished attic before construction work even begins.",
+  solution:"A timelapse in which craftsmen turn a bare shell into a finished living space within seconds. The beams, windows and dimensions are based on real photos.",
+  output:"Vertical video for reels and stories.",
+  quote:"A bare shell doesn't sell. A finished home does.",
+  gallery:[{t:"i",src:"workers1-f1",ar:"9/16",w:6,cap:"Before"},{t:"i",src:"workers1-f3",ar:"9/16",w:6,cap:"After"}]},
+
+ {id:"prospekt", title:"Sales", em:"brochure", script:"Visualisations and floor plans",
+  cats:["reality"], client:"Developer", format:"Print & online brochure", tools:"ChatGPT · Nano Banana",
+  cover:"prospekt", main:{t:"i",src:"prospekt",ar:"3/2"}, wide:true,
+  brief:"A clear brochure for a family house: exterior, floor layouts, key information and the site plan on a single page.",
+  solution:"Visualisations of the house and garden, clean 2D floor plans with room areas and a consistent graphic style across the sheet.",
+  output:"A brochure for print and web, plus separate floor plans of an apartment and a house.",
+  quote:"A floor plan every buyer understands.",
+  gallery:[{t:"i",src:"pudorys-dum",ar:"3/2",w:8,cap:"Family house"},{t:"i",src:"pudorys-byt",ar:"4/3",w:4,cap:"Apartment"}]},
+
+ {id:"shop-the-look", title:"Shop", em:"the look", script:"An interior as a catalogue",
+  cats:["reality","kampane"], client:"Personal project", format:"Graphic 5:6", tools:"Nano Banana · ChatGPT",
+  cover:"shopthelook", main:{t:"i",src:"shopthelook",ar:"5/6"},
+  brief:"Show how a furniture store or real estate agency can sell a whole style instead of individual pieces.",
+  solution:"A furnished living room with labels for specific products (chest of drawers, rug, coffee table, sofa) and cut-outs of them below the scene.",
+  output:"A graphic for Instagram and newsletters.",
+  quote:"People don't buy a coffee table. They buy the feeling of the whole room.",
+  gallery:[]},
+
+ {id:"emily", title:"Mini", em:"film", script:"A fairy tale shot without a camera",
+  cats:["ai-video"], client:"Personal project", format:"Video 2:3 · 85 s", tools:"Midjourney · Kling AI · Seedance · CapCut",
+  cover:"emily", main:{t:"v",src:"emily",ar:"2/3"},
+  brief:"A short film about a girl who walks through an old door into a world of dreams. A test of how far AI can go in emotion and storytelling.",
+  solution:"A consistent character across every scene, a warm golden palette and a camera that moves like in a real film. Music and editing keep the rhythm of the story.",
+  output:"A vertical short film for Instagram and a showreel.",
+  quote:"AI is not a shortcut. It is a new brush.",
+  gallery:[{t:"i",src:"emily-f2",ar:"2/3",w:4},{t:"i",src:"emily-f4",ar:"2/3",w:4},{t:"i",src:"emily-f3",ar:"2/3",w:4},{t:"i",src:"emily-f5",ar:"2/3",w:6},{t:"i",src:"emily-f6",ar:"2/3",w:6}]},
+
+ {id:"ozivle-fotografie", title:"Animated", em:"photographs", script:"Family memories in motion",
+  cats:["ai-video"], client:"Private commission", format:"Video 1:1 & 9:16 · 5–8 s", tools:"Kling AI · Nano Banana",
+  cover:"rodice", main:{t:"v",src:"rodice",ar:"1/1"},
+  brief:"Bring old family photographs to life while staying true to the originals. No effects, just a moment that breathes again.",
+  solution:"Gentle animation with natural gestures: a smile, a glance, a kiss on the cheek, a baby laughing in someone's arms. The grain, tones and character of the original photos are preserved.",
+  output:"Short videos to share with family or give as a personal gift.",
+  quote:"Some photos deserve to breathe again.",
+  gallery:[{t:"v",src:"tata",ar:"9/16",w:4,cap:"Dad and me"},{t:"i",src:"tata-f1",ar:"9/16",w:4},{t:"i",src:"tata-f3",ar:"9/16",w:4},{t:"i",src:"rodice-f1",ar:"1/1",w:6},{t:"i",src:"rodice-f3",ar:"1/1",w:6}]},
+
+ {id:"viral-dog", title:"Viral", em:"dog", script:"A short video for social media",
+  cats:["ai-video"], client:"Personal project", format:"Video 9:16 · 12 s", tools:"Nano Banana · Kling AI · CapCut",
+  cover:"dog", main:{t:"v",src:"dog",ar:"9/16"},
+  brief:"A short, funny video with a striking main character that grabs attention in the first seconds and makes people want to share it.",
+  solution:"A dog in sunglasses strolling through the city, dynamic editing, close-ups and a rhythm made for reels.",
+  output:"Vertical video for Instagram, TikTok and reels.",
+  quote:"On social media, whoever stops the thumb wins.",
+  gallery:[{t:"i",src:"dog-f1",ar:"9/16",w:4},{t:"i",src:"dog-f2",ar:"9/16",w:4},{t:"i",src:"dog-foto",ar:"9/16",w:4,cap:"Photo"}]},
+
+ {id:"phric-memories", title:"Phric", em:"memories", script:"A brand film about the scent of memories",
+  cats:["kampane","ai-video"], client:"Phric.cz", format:"Video 2:3 · 30 s", tools:"Midjourney · Kling AI · CapCut",
+  cover:"memories", main:{t:"v",src:"memories",ar:"2/3"},
+  brief:"Italian home fragrances sell an emotion. The brand wanted a film that connects the scent with a childhood memory.",
+  solution:"A grandmother opens a book and the scent carries her to an Italian village, a lemon grove and a little girl. A warm film palette and a gentle transition between times.",
+  output:"A brand film for social media and the e-shop, with 15-second cuts for ads.",
+  quote:"Scent is the fastest way back to our memories.",
+  gallery:[{t:"i",src:"memories-f1",ar:"2/3",w:4},{t:"i",src:"memories-f2",ar:"2/3",w:4},{t:"i",src:"memories-f3",ar:"2/3",w:4}]},
+
+ {id:"phric-kampan", title:"Phric", em:"campaign", script:"A taste of Italy in every shot",
+  cats:["kampane"], client:"Phric.cz", format:"Photo 4:5, 1:1 · video 9:16", tools:"Midjourney · Nano Banana · Kling AI",
+  cover:"kampan-vespa", main:{t:"i",src:"kampan-vespa",ar:"4/5"},
+  brief:"A campaign for Italian home and car fragrances: the product in a setting that refers to its origin and how it is used.",
+  solution:"An Italian alley with a Vespa, a fragrance in the sand, a car scent on a leather seat and a clean lifestyle arrangement on marble. Plus a short product video.",
+  output:"Photos for the e-shop, social media and ads, and a product video.",
+  quote:"A product doesn't sell on a white background. It sells in a story.",
+  gallery:[{t:"i",src:"kampan-pisek",ar:"4/5",w:6},{t:"i",src:"kampan-auto",ar:"4/5",w:6},{t:"v",src:"difuzer",ar:"9/16",w:4,cap:"Product video"},{t:"i",src:"phric-italie",ar:"9/16",w:8,cap:"Lifestyle"}]},
+
+ {id:"produktova-fotografie", title:"Product", em:"photography", script:"Details that make you hungry",
+  cats:["kampane"], client:"Personal project", format:"Photo 9:16 & 1:1", tools:"Midjourney · Nano Banana",
+  cover:"produkt-olej", main:{t:"i",src:"produkt-olej",ar:"9/16"},
+  brief:"Product photos that work without words: taste, scent and material have to be visible at first glance.",
+  solution:"Olive oil dripping over fresh focaccia and a bottle of fragrance frozen in ice with flowers. Bold light and a clean background.",
+  output:"Photos for the e-shop, ads and social media.",
+  quote:"A good product photo is one you can almost taste.",
+  gallery:[{t:"i",src:"produkt-led",ar:"1/1",w:12,cap:"Phric in ice"}]},
+
+ {id:"parizsky-sik", title:"Parisian", em:"chic", script:"A fashion series on the streets of Paris",
+  cats:["modely","covery"], client:"Personal project", format:"Photo 9:16 · cover 3:4", tools:"Midjourney · Nano Banana",
+  cover:"model-pariz1", main:{t:"i",src:"model-pariz1",ar:"9/16"},
+  brief:"A consistent fashion series with one model in different shots, prepared as the basis for a magazine cover.",
+  solution:"The same model, outfit and golden-hour light across three shots. The series became a cover in the style of a fashion magazine.",
+  output:"A photo series and a cover.",
+  quote:"Consistency turns three photos into a story.",
+  gallery:[{t:"i",src:"model-pariz2",ar:"9/16",w:4},{t:"i",src:"model-pariz3",ar:"9/16",w:4},{t:"i",src:"cover-paris",ar:"3/4",w:4,cap:"Cover"}]},
+
+ {id:"italske-leto", title:"Italian", em:"summer", script:"Lifestyle at the market and in the streets",
+  cats:["modely"], client:"Personal project", format:"Photo 9:16 & 2:3", tools:"Midjourney · Nano Banana",
+  cover:"model-trh", main:{t:"i",src:"model-trh",ar:"9/16"},
+  brief:"Lifestyle shots with the atmosphere of an Italian summer for brands that sell the feeling of a holiday.",
+  solution:"Natural moments at a fruit market and on the steps of a square. Warm light, authentic details and styling.",
+  output:"Lifestyle photos for social media and campaigns.",
+  quote:"The best ads look like a holiday memory.",
+  gallery:[{t:"i",src:"model-italie",ar:"2/3",w:12}]},
+
+ {id:"editorial", title:"Editorial", em:"portraits", script:"Fashion photography without a studio",
+  cats:["modely"], client:"Personal project", format:"Photo 2:3 & 3:4", tools:"Midjourney · Nano Banana",
+  cover:"red", main:{t:"i",src:"red",ar:"2/3"},
+  brief:"A series of portraits showing a range of styles: from a winter editorial to black-and-white classics and natural beauty portraits.",
+  solution:"Each image has its own light, styling and mood. The focus is on fabric texture, skin and a cinematic character.",
+  output:"A portrait series for the portfolio and social media.",
+  quote:"Style is a decision. AI just renders it.",
+  gallery:[{t:"i",src:"bw1",ar:"2/3",w:6},{t:"i",src:"bw2",ar:"2/3",w:6},{t:"i",src:"model-portret1",ar:"3/4",w:6},{t:"i",src:"model-portret2",ar:"3/4",w:6}]},
+
+ {id:"covery", title:"Magazine", em:"covers", script:"Covers with a story",
+  cats:["covery","kampane"], client:"Personal project", format:"Photo 4:5 & 3:4", tools:"Midjourney · Nano Banana",
+  cover:"dolcevita", main:{t:"i",src:"dolcevita",ar:"4/5"},
+  brief:"Conceptual fashion magazine covers with an accessory or a model in the lead role.",
+  solution:"The Amalfi coast with a straw bag in the sand, and a Parisian street at golden hour. Composition, typography and magazine style.",
+  output:"Covers for the portfolio and social media.",
+  quote:"A summer you can sell in a single photo.",
+  gallery:[{t:"i",src:"cover-paris",ar:"3/4",w:12,cap:"Parisian chic"}]}
+];
+
+const $ = s => document.querySelector(s);
+const A = n => `assets/${n}`;
+const imgSrc = n => /-f\d$/.test(n) ? A(n+'.webp') : (/^(c21|workers1|interier|loft|emily|rodice|tata|memories|difuzer|dog)$/.test(n) ? A(n+'.jpg') : A(n+'.webp'));
+const isVid = n => /^(c21|workers1|interier|loft|emily|rodice|tata|memories|difuzer|dog)$/.test(n);
+const playIcon = '<span class="play" aria-hidden="true"><svg width="12" height="14" viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z" fill="currentColor"/></svg></span>';
+
+/* categories */
+const TILE = {"reality":"rk-loft.webp","ai-video":"emily.jpg","kampane":"kampan-vespa.webp","modely":"model-pariz1.webp","covery":"dolcevita.webp"};
+$('#cats').innerHTML = Object.entries(CATS).map(([k,c])=>{
+  const n = P.filter(p=>p.cats.includes(k)).length;
+  return `<button class="cat" data-filter="${k}" aria-label="${c.name}: view projects"><img src="assets/${TILE[k]}" alt="" loading="lazy"><span class="lbl">${c.name}<small>${n} projects</small></span></button>`;
+}).join('');
+/* quotes */
+const QUOTES=["“AI is not a shortcut. It is a new brush. But the result always starts with your story.”","“An empty apartment doesn't sell. A home that buyers can imagine does.”","“A product doesn't sell on a white background. It sells in a story.”"];
+let qi=0; const qt=$('#q-text');
+function showQ(d){ qi=(qi+d+QUOTES.length)%QUOTES.length; qt.style.opacity=0; setTimeout(()=>{qt.textContent=QUOTES[qi]; qt.style.opacity=1;},250); }
+$('#q-prev').addEventListener('click',()=>showQ(-1)); $('#q-next').addEventListener('click',()=>showQ(1));
+
+/* filters */
+$('#filters').innerHTML = `<button class="chip" data-f="all" aria-pressed="true">All</button>` +
+  Object.entries(CATS).map(([k,c])=>`<button class="chip" data-f="${k}" aria-pressed="false">${c.name}</button>`).join('');
+
+/* grid */
+$('#grid').innerHTML = P.map(p=>{
+  const v = isVid(p.cover) || p.main.t==='v' && isVid(p.main.src);
+  const vs = isVid(p.cover) ? p.cover : (p.main.t==='v' ? p.main.src : null);
+  return `<a class="item" href="#${p.id}" data-id="${p.id}" data-cats="${p.cats.join(' ')}">
+    <div class="thumb"><span class="badge">${CATS[p.cats[0]].name}</span>
+      <img src="${imgSrc(p.cover)}" alt="${p.title} ${p.em}" loading="lazy">
+      ${vs?`<video muted loop playsinline preload="none" data-src="${A(vs+'.mp4')}"></video>${playIcon}`:''}
+    </div>
+    <div class="meta"><span>${p.client}</span><span>${p.format.split('·')[0].trim()}</span></div>
+    <h3>${p.title} <em>${p.em}</em></h3></a>`;
+}).join('');
+
+function setFilter(f){
+  document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.f===f));
+  document.querySelectorAll('.item').forEach(it=>{ it.hidden = f!=='all' && !it.dataset.cats.split(' ').includes(f); });
+}
+$('#filters').addEventListener('click',e=>{const b=e.target.closest('.chip'); if(b) setFilter(b.dataset.f);});
+document.addEventListener('click',e=>{
+  const t = e.target.closest('[data-filter]'); if(!t) return;
+  e.preventDefault(); goHome('portfolio'); setFilter(t.dataset.filter); closeMenu();
+});
+
+/* hover video preview */
+const canHover = matchMedia('(hover:hover)').matches;
+document.querySelectorAll('.item').forEach(it=>{
+  const v = it.querySelector('video'); if(!v || !canHover) return;
+  it.addEventListener('mouseenter',()=>{ if(!v.src) v.src=v.dataset.src; v.play().then(()=>it.classList.add('playing')).catch(()=>{}); });
+  it.addEventListener('mouseleave',()=>{ v.pause(); it.classList.remove('playing'); });
+});
+
+/* media renderer */
+function media(m, main){
+  if(m.t==='v') return `<video src="${A(m.src+'.mp4')}" poster="${A(m.src+'.jpg')}" ${main?'controls':'muted loop autoplay'} playsinline preload="${main?'metadata':'none'}" style="--ar:${m.ar}"></video>`;
+  return `<img src="${imgSrc(m.src)}" alt="" loading="lazy" style="--ar:${m.ar}">`;
+}
+
+function renderCase(p){
+  const i = P.indexOf(p), nx = P[(i+1)%P.length];
+  $('#case').innerHTML = `
+  <section class="case-hero"><div class="wrap">
+    <a class="back" href="#portfolio" data-home>← Back to portfolio</a>
+    <div class="case-title"><span class="script">${p.script}</span><h1>${p.title} <em>${p.em}</em></h1></div>
+    <dl class="case-meta">
+      <div><dt>Client</dt><dd>${p.client}</dd></div>
+      <div><dt>Category</dt><dd>${p.cats.map(c=>CATS[c].name).join(', ')}</dd></div>
+      <div><dt>Format</dt><dd>${p.format}</dd></div>
+      <div><dt>Tools</dt><dd>${p.tools}</dd></div>
+    </dl>
+    <div class="case-main ${p.wide?'wide':''}">${media(p.main,true)}</div>
+  </div></section>
+  <section class="case-body"><div class="wrap">
+    <div class="case-cols">
+      <section><h2>Brief</h2><p>${p.brief}</p></section>
+      <section><h2>Solution</h2><p>${p.solution}</p></section>
+      <section><h2>Deliverables</h2><p>${p.output}</p></section>
+    </div>
+    <div class="case-quote"><p>“${p.quote}”</p></div>
+    ${p.gallery.length?`<div class="gallery">${p.gallery.map(g=>`<figure class="w${g.w||4}">${media(g,false)}${g.cap?`<figcaption>${g.cap}</figcaption>`:''}</figure>`).join('')}</div>`:''}
+  </div></section>
+  <a class="next" href="#${nx.id}"><img src="${imgSrc(nx.cover)}" alt="" loading="lazy"><span class="in"><small>Next project</small><strong>${nx.title} <em>${nx.em}</em></strong></span></a>`;
+  // lazy-play gallery videos when visible
+  const io = new IntersectionObserver(es=>es.forEach(en=>{const v=en.target; if(en.isIntersecting){v.preload='auto'; v.play().catch(()=>{});} else v.pause();}),{threshold:.3});
+  $('#case').querySelectorAll('.gallery video').forEach(v=>io.observe(v));
+}
+
+/* routing */
+const home = $('#home'), cs = $('#case');
+function goHome(anchor){
+  cs.querySelectorAll('video').forEach(v=>v.pause());
+  cs.hidden = true; home.hidden = false;
+  if(anchor){ const el=document.getElementById(anchor); if(el) requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth'})); }
+}
+function route(){
+  const id = (location.hash||'').slice(1);
+  const p = P.find(x=>x.id===id);
+  if(p){ renderCase(p); home.hidden = true; cs.hidden = false; window.scrollTo(0,0); }
+  else if(!cs.hidden){ goHome(id||null); }
+}
+window.addEventListener('hashchange',route);
+document.addEventListener('click',e=>{
+  const a = e.target.closest('a[data-home]'); if(!a) return;
+  const id = a.getAttribute('href').slice(1);
+  if(!cs.hidden){ e.preventDefault(); history.pushState(null,'','#'+id); goHome(id); }
+  closeMenu();
+});
+route();
+
+/* inquiry form */
+const WEB3FORMS_KEY = "97bcc9bf-41af-4749-b3dd-7b73425fd734"; // přístupový klíč z web3forms.com – poptávky pak chodí rovnou do e-mailu
+const FORM_ENDPOINT = ""; // alternativa: adresa jiné formulářové služby (např. Formspree)
+const OWNER_EMAIL = "aj.fryk@gmail.com";
+const form = $('#inq'), done = $('#inq-done');
+function setErr(el, msg){ const f = el.closest('.field'); f.classList.toggle('err', !!msg); const m=f.querySelector('.msg'); if(m) m.textContent = msg||''; }
+function validate(){
+  let ok = true, first = null;
+  const chk = (el, cond, msg) => { setErr(el, cond ? '' : msg); if(!cond){ ok=false; first = first||el; } };
+  chk($('#f-name'), $('#f-name').value.trim().length>1, 'Please enter your name.');
+  chk($('#f-email'), /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($('#f-email').value.trim()), 'Please enter an e-mail like name@domain.com.');
+  const sv = [...form.querySelectorAll('[name=sluzby]:checked')];
+  chk($('#f-services'), sv.length>0, 'Please choose at least one service.');
+  chk($('#f-msg'), $('#f-msg').value.trim().length>4, 'Please write a few words about your project.');
+  const g = $('#f-gdpr'); if(!g.checked){ ok=false; first = first||g; g.parentElement.style.color='#B3261E'; } else g.parentElement.style.color='';
+  if(first) first.focus();
+  return ok;
+}
+function summary(){
+  const v = n => (form.elements[n]?.value||'').trim() || '—';
+  const sv = [...form.querySelectorAll('[name=sluzby]:checked')].map(x=>x.value).join(', ');
+  return `[EN] Name: ${v('jmeno')}\nCompany: ${v('firma')}\nE-mail: ${v('email')}\nPhone: ${v('telefon')}\nServices: ${sv}\nTimeline: ${v('termin')}\nBudget: ${v('rozpocet')}\nMaterials: ${v('odkaz')}\n\nProject description:\n${v('zprava')}`;
+}
+form.addEventListener('input', e=>{ const f=e.target.closest('.field'); if(f&&f.classList.contains('err')) setErr(e.target,''); });
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  if(form.elements.web.value) return; // spam
+  if(!validate()) return;
+  const text = summary(), name = form.elements.jmeno.value.trim();
+  let sent = false;
+  const btn = form.querySelector('button[type=submit]'); const btnTxt = btn.textContent;
+  if(WEB3FORMS_KEY || FORM_ENDPOINT){ btn.disabled = true; btn.textContent = 'Sending…'; }
+  const val = n => (form.elements[n]?.value||'').trim();
+  const services = [...form.querySelectorAll('[name=sluzby]:checked')].map(x=>x.value).join(', ');
+  try{
+    if(WEB3FORMS_KEY){
+      const r = await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body:JSON.stringify({access_key:WEB3FORMS_KEY, subject:'Inquiry from website (EN): '+name, from_name:'Andrea Signature – web', replyto:val('email'),
+          'Name':val('jmeno'), 'Company':val('firma'), 'E-mail':val('email'), 'Phone':val('telefon'), 'Services':services, 'Timeline':val('termin'), 'Budget':val('rozpocet'), 'Materials':val('odkaz'), 'Project description':val('zprava'), 'Language':'English'})});
+      const j = await r.json().catch(()=>({})); sent = r.ok && j.success !== false;
+    } else if(FORM_ENDPOINT){
+      const r = await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({_subject:'Inquiry from website (EN): '+name, email:val('email'), zprava:text})}); sent = r.ok;
+    }
+  }catch(_){ sent=false; }
+  btn.disabled = false; btn.textContent = btnTxt;
+  const mail = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent('Inquiry from website: '+name)}&body=${encodeURIComponent(text)}`;
+  form.querySelectorAll('.field,.consent,.form-foot').forEach(x=>x.hidden=true);
+  done.hidden = false;
+  done.innerHTML = sent
+    ? `<h3>Thank you, your inquiry has been sent</h3><p>I'll get back to you soon at ${form.elements.email.value.trim()}.</p>`
+    : `<h3>One last step</h3><p>Open the e-mail with the prepared message and send it. If your e-mail app doesn't open, copy the summary and send it to <b>${OWNER_EMAIL}</b>.</p>
+       <pre id="inq-text"></pre>
+       <div class="row"><a class="btn" href="${mail}">Open e-mail</a><button class="btn ghost" type="button" id="inq-copy">Copy summary</button><button class="btn ghost" type="button" id="inq-back">Edit inquiry</button></div>`;
+  const pre = $('#inq-text'); if(pre) pre.textContent = text;
+  $('#inq-copy')?.addEventListener('click', ev=>{
+    const b = ev.currentTarget;
+    navigator.clipboard.writeText(text).then(()=>{ b.textContent='Copied'; }).catch(()=>{ const r=document.createRange(); r.selectNodeContents(pre); const s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent='Selected, press Ctrl+C'; });
+  });
+  $('#inq-back')?.addEventListener('click', ()=>{ done.hidden=true; form.querySelectorAll('.field,.consent,.form-foot').forEach(x=>x.hidden=false); });
+  done.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+/* nav tint + burger */
+const nav = $('#nav'), menu = $('#menu'), burger = $('#burger');
+function tint(){ const h = home.hidden ? 0 : 0; nav.classList.toggle('on-cream', home.hidden ? window.scrollY > 300 : window.scrollY > h); }
+addEventListener('scroll',tint,{passive:true}); tint();
+function closeMenu(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+burger.addEventListener('click',()=>{ const o=menu.classList.toggle('open'); burger.setAttribute('aria-expanded',o); });
+</script>
+
+</body></html>
