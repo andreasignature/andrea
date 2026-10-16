@@ -366,6 +366,7 @@ fieldset.field{border:0;margin:0;padding:0}
 .lang a{color:var(--mute)}
 .lang a.on{color:var(--red)}
 .lang i{font-style:normal;color:var(--line)}
+.consent a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}.consent a:hover{color:var(--red)}.foot a{color:inherit;text-decoration:underline;text-underline-offset:3px}.foot a:hover{color:var(--red)}
 </style>
 </head><body>
 
@@ -466,7 +467,7 @@ fieldset.field{border:0;margin:0;padding:0}
         <select id="f-budget" name="rozpocet"><option value="">Select</option><option>Up to €200</option><option>€200 – €600</option><option>€600 – €1,200</option><option>Over €1,200</option><option>Not sure yet</option></select></div>
       <div class="field full"><label for="f-msg">Project description <span class="req">*</span></label><textarea id="f-msg" name="zprava" required placeholder="What you need, for what purpose (Instagram, website, property portal, print) and in what style."></textarea><span class="msg"></span></div>
       <div class="field full"><label for="f-link">Link to materials</label><input id="f-link" name="odkaz" type="url" placeholder="Listing, website, Google Drive, WeTransfer…"></div>
-      <label class="consent" for="f-gdpr"><input type="checkbox" id="f-gdpr" name="souhlas" required><span>I agree to the processing of my personal data for the purpose of handling this inquiry. <span class="req">*</span></span></label>
+      <label class="consent" for="f-gdpr"><input type="checkbox" id="f-gdpr" name="souhlas" required><span>I agree to the processing of my personal data for the purpose of handling this inquiry. <a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a> <span class="req">*</span></span></label>
       <div class="form-foot"><small>* required</small><button class="btn" type="submit">Send inquiry</button></div>
       <div class="done" id="inq-done" hidden></div>
     </form>
@@ -491,7 +492,7 @@ fieldset.field{border:0;margin:0;padding:0}
     <div class="foot">
       <img src="assets/logo.png" alt="Andrea Signature" width="150" height="59">
       <span>AI visuals · video · branding</span>
-      <span>© 2026 Andrea Signature</span>
+      <span>© 2026 Andrea Signature · Company ID 71076018 · <a href="privacy.html">Privacy policy</a></span>
     </div>
   </div>
 </section>

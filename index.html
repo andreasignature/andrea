@@ -366,6 +366,7 @@ fieldset.field{border:0;margin:0;padding:0}
 .lang a{color:var(--mute)}
 .lang a.on{color:var(--red)}
 .lang i{font-style:normal;color:var(--line)}
+.consent a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}.consent a:hover{color:var(--red)}.foot a{color:inherit;text-decoration:underline;text-underline-offset:3px}.foot a:hover{color:var(--red)}
 </style>
 </head><body>
 
@@ -466,7 +467,7 @@ fieldset.field{border:0;margin:0;padding:0}
         <select id="f-budget" name="rozpocet"><option value="">Vyberte</option><option>Do 5 000 Kč</option><option>5 000 – 15 000 Kč</option><option>15 000 – 30 000 Kč</option><option>Nad 30 000 Kč</option><option>Zatím nevím</option></select></div>
       <div class="field full"><label for="f-msg">Popis projektu <span class="req">*</span></label><textarea id="f-msg" name="zprava" required placeholder="Co potřebujete, pro jaký účel (Instagram, web, realitní portál, tisk) a v jakém stylu."></textarea><span class="msg"></span></div>
       <div class="field full"><label for="f-link">Odkaz na podklady</label><input id="f-link" name="odkaz" type="url" placeholder="Inzerát, web, Google Drive, WeTransfer…"></div>
-      <label class="consent" for="f-gdpr"><input type="checkbox" id="f-gdpr" name="souhlas" required><span>Souhlasím se zpracováním osobních údajů za účelem vyřízení poptávky. <span class="req">*</span></span></label>
+      <label class="consent" for="f-gdpr"><input type="checkbox" id="f-gdpr" name="souhlas" required><span>Souhlasím se zpracováním osobních údajů za účelem vyřízení poptávky. <a href="ochrana-udaju.html" target="_blank" rel="noopener">Zásady ochrany osobních údajů</a> <span class="req">*</span></span></label>
       <div class="form-foot"><small>* povinné údaje</small><button class="btn" type="submit">Odeslat poptávku</button></div>
       <div class="done" id="inq-done" hidden></div>
     </form>
@@ -491,7 +492,7 @@ fieldset.field{border:0;margin:0;padding:0}
     <div class="foot">
       <img src="assets/logo.png" alt="Andrea Signature" width="150" height="59">
       <span>AI visuals · video · branding</span>
-      <span>© 2026 Andrea Signature</span>
+      <span>© 2026 Andrea Signature · IČO 71076018 · <a href="ochrana-udaju.html">Ochrana osobních údajů</a></span>
     </div>
   </div>
 </section>
