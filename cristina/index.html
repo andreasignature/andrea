@@ -538,7 +538,7 @@ function tile(cap,img,video,onclick,extra){
 }
 function render(f){
   filter=f;albumBar.hidden=true;grid.innerHTML='';
-  const list=photos.filter(p=>f==='all'||(p.album?p.cat:p[0])===f);
+  const list=photos.filter(p=>p.album?p.cat===f:(f==='all'||p[0]===f));
   if(!list.length){grid.innerHTML='<p class="note" style="grid-column:1/-1;text-align:center;padding:40px 0">Fotky z této kategorie brzy přidáme.</p>';return;}
   const singles=list.filter(p=>!p.album).map(p=>[p[1],p[2],p[3]]);
   list.forEach(p=>{
